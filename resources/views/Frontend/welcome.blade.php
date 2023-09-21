@@ -95,31 +95,7 @@
                     </aside>
 
                     <!--Main Navigation-->
-                    <nav id="nav-main">
-                        <ul>
-                            <li>
-                                <a href="#banner">Home</a>
-                            </li>
-                            <li>
-                                <a href="#about">About</a>
-                            </li>
-                            <li>
-                                <a href="#gallery">Gallery</a>
-                            </li>
-                            <li>
-                                <a href="#services">Services</a>
-                            </li>
-                            <li>
-                                <a href="#testimonials">Testimonials</a>
-                            </li>
-                            <li>
-                                <a href="#clients">Clients</a>
-                            </li>
-                            <li>
-                                <a href="#pricing">Pricing</a>
-                            </li>
-                        </ul>
-                    </nav>
+
                     <!--End of Main Navigation-->
 
                     <div id="nav-trigger"><span></span></div>
@@ -141,7 +117,7 @@
                 </div>
 
                 <!--Call to Action-->
-                <a href="#" class="button">START CREATING TODAY</a>
+                <a href="{{route('dashboard')}}" class="button">START CREATING TODAY</a>
                 <!--End Call to Action-->
 
             </div>

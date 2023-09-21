@@ -16,6 +16,8 @@
 
     <!-- Page JS -->
     <script src="{{asset('Admin')}}/assets/js/dashboards-analytics.js"></script>
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+     <!-- for login Page  -->
+     <link rel="stylesheet" href="{{asset('Admin')}}/assets/vendor/css/pages/page-auth.css" />
+     <!-- for login page Helpers -->
+     <script src="{{asset('Admin')}}/assets/vendor/js/helpers.js"></script>
