@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\BlogCategory;
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             BlogCategorySeeder::class,
+            // UserSeeder::class,
+            AdminSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();

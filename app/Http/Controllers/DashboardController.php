@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function dashboard(){
         return view('Admin.dashboard');
     }
-    public function login(){
-        return view('Admin.Authantication.login');
-    }
+
 }

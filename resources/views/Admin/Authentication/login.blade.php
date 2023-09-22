@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@section('title') Login @endsection</title>
+    <title>Login</title>
     @include('Admin.layout.head')
 </head>
 <body>
@@ -79,14 +79,15 @@
                 <h4 class="mb-2">Welcome to Sneat! 👋</h4>
                 <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
-                <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+                <form id="formAuthentication" class="mb-3" action="{{route('login.check')}}" method="POST">
+                    @csrf
                   <div class="mb-3">
                     <label for="email" class="form-label">Email or Username</label>
                     <input
                       type="text"
                       class="form-control"
                       id="email"
-                      name="email-username"
+                      name="email"
                       placeholder="Enter your email or username"
                       autofocus
                     />
@@ -112,7 +113,7 @@
                   </div>
                   <div class="mb-3">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="remember-me" />
+                      <input class="form-check-input" name="remember_token" type="checkbox" {{ old('remember') ? 'checked' : '' }} id="remember-me" />
                       <label class="form-check-label" for="remember-me"> Remember Me </label>
                     </div>
                   </div>
@@ -123,7 +124,7 @@
 
                 <p class="text-center">
                   <span>New on our platform?</span>
-                  <a href="auth-register-basic.html">
+                  <a href="{{route('register')}}">
                     <span>Create an account</span>
                   </a>
                 </p>
