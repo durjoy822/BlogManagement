@@ -79,9 +79,22 @@
       </li>
       <li class="menu-item">
         <a href="{{route('category.index')}}" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-collection"></i>
-          <div data-i18n="Basic">Category</div>
+            <i class="menu-icon fa-solid fa-coins"></i>
+          <div data-i18n="Basic">Categories</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link">
+            <i class="menu-icon fa-solid fa-video mr-2"></i>
+          <div data-i18n="Basic">Video video</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link">
+            <i class="menu-icon fa-solid fa-file-audio"></i>
+          <div data-i18n="Basic">Audio post</div>
         </a>
       </li>
     </ul>
+    
   </aside>
