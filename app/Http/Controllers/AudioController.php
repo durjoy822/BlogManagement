@@ -11,7 +11,7 @@ class AudioController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.Audio-post.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class AudioController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Audio-post.add'); 
     }
 
     /**

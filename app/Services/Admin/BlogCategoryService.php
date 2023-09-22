@@ -17,25 +17,44 @@ class BlogCategoryService
         DB::beginTransaction();
 
         try {
-            $blog = new BlogCategory();
-            $blog->name = $request->name;
-            $blog->image = $this->uploadImage($request->image,'admin');
-            $blog->save();
+            $category = new BlogCategory();
+            $category->name = $request->name;
+            $category->image = $this->uploadImage($request->image,'blog-category');
+            $category->save();
 
             DB::commit();
-
-            return 'Blog category created successfully';
-            return back();
         } catch (\Exception $e) {
-
             // DB::rollback();
-
             return 'Blog category creation failed';
         }
     }
+    public function update($request, $id)
+    {
+        // dd($request->all());
+        DB::beginTransaction();
+
+        try {
+            $category=BlogCategory::find($id);
+            $category->name = $request->name;
+            if ($request->file('image')){
+                if (file_exists($category->image)){
+                    unlink($category->image);
+                }
+                $category->image =$this->uploadImage($request->image,'blog-category');
+            }
+            $category->save();
+            DB::commit();
+
+        } catch (\Exception $e) {
+            // DB::rollback();
+            return 'Blog category updated  failed';
+        }
+    }
+
+
     public function destroy($id){
         $blog=BlogCategory::find($id);
-        $blog->image=$this->deleteImage($id);
+        $blog->image=$this->deleteImage($blog->image);
         $blog->delete();
 
     }

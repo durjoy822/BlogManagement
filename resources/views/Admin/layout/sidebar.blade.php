@@ -84,17 +84,17 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="#" class="menu-link">
+        <a href="{{route('video.index')}}" class="menu-link">
             <i class="menu-icon fa-solid fa-video mr-2"></i>
           <div data-i18n="Basic">Video video</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="#" class="menu-link">
+        <a href="{{route('audio.index')}}" class="menu-link">
             <i class="menu-icon fa-solid fa-file-audio"></i>
           <div data-i18n="Basic">Audio post</div>
         </a>
       </li>
     </ul>
-    
+
   </aside>

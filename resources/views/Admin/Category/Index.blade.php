@@ -3,21 +3,20 @@
     Category Index
 @endsection
 @section('content')
-    <nav aria-label="breadcrumb" class="my-3 mx-4 px-1">
+    <nav aria-label="breadcrumb" class="my-4 mx-4 px-1">
         <ol class="breadcrumb breadcrumb-style2 mb-0">
             <li class="breadcrumb-item">
-                <a href="javascript:void(0);">Home</a>
+                <a href="javascript:void(0);">Categories</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="javascript:void(0);">Library</a>
+                <a href="javascript:void(0);">index</a>
             </li>
-            <li class="breadcrumb-item active">Data</li>
         </ol>
     </nav>
     <div class="container-xxl flex-grow-1 mb-3 ">
         <h4 class="fw-bold py-3 mb-4">
             <span class=" fw-light">Blog category
-                <a href="#" onclick="myFunction()" >
+                <a href="{{route('category.create')}}" >
                     <div class="btn btn-info float-end btn-sm" id="showButton" >
                         <i class="fa-solid fa-plus"></i> Category add
                     </div>
@@ -49,8 +48,7 @@
                             <tbody class="table-border-bottom-0 text-center ">
                                 @foreach ($blogCategories as $blogCategory)
                                     <tr>
-                                        {{-- {{ $loop->iteration }} --}}
-                                        <td> <strong>{{$blogCategory->id}}</strong></td>
+                                        <td> <strong>{{ $loop->iteration }}</strong></td>
                                         <td><img src="{{ asset($blogCategory->image) }}" style="width: 50px"></td>
                                         <td>{{ $blogCategory->name }}</td>
                                         <td>
@@ -60,11 +58,12 @@
                                                     <i class="bx bx-dots-vertical-rounded"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{route('category.edit',$blogCategory->id)}}" onclick="myFunction()" ><i
+                                                    <a class="dropdown-item" href="{{route('category.edit',$blogCategory->id)}}"  ><i
                                                             class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                    <a class="dropdown-item" href="{{route('category.destroy', $blogCategory->id)}}"><i
-                                                            class="bx bx-trash me-1"></i>
-                                                        Delete</a>
+                                                    <form action="{{route('category.destroy',$blogCategory->id)}}" method="post">@csrf
+                                                        @method("DELETE")
+                                                        <button type="submit" class="btn btn-block" style="padding-right: 95px;"><i class="bx bx-trash me-1"></i>  Delete</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </td>
@@ -78,8 +77,37 @@
                 </div>
             </div>
             <!--form-->
+            <!--Edit form-->
+            @isset($blogcategory)
+            <div class="col-md-4  order-sm-first order-first py-2 update-form ">
+                <div class="col-xl">
+                    <div class="card mb-4">
+                      <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Category edit</h5>
+                      </div>
+                       <div class="card-body">
+                        <form action="{{route('category.update',$blogcategory->id)}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
+                          <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Category  Name</label>
+                            <input type="text" name="name" value="{{$blogcategory->name}}" class="form-control" id="basic-default-fullname"  />
+                          </div>
+                          <div class="mb-3">
+                            <label for="formFile" class="form-label">Image</label>
+                            <input class="form-control" name="image" type="file"  />
+                          </div>
+                          <span><img src="{{asset($blogcategory->image)}}" style="width: 70px"></span>
+                          <button type="submit" class="btn btn-primary float-end">Update</button>
+                        </form>
+                      </div>
+                    </div>
+
+                  </div>
+            </div>
+            @else
             <!--create form-->
-            <div class="col-md-4  order-sm-first order-first py-2 create-form " id="createForm">
+            <div class="col-md-4  order-sm-first order-first py-2 create-form " >
                 <div class="col-xl">
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
@@ -105,58 +133,9 @@
 
                 </div>
             </div>
-            <!--update form-->
+            @endisset
 
-            <div class="col-md-4  order-sm-first order-first py-2 update-form " id="updateForm">
-                <div class="col-xl">
-                    <div class="card mb-4">
-                      <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Category Update</h5>
-                      </div>
-                       <div class="card-body">
-                        <form>
-                          <div class="mb-3">
-                            <label class="form-label" for="basic-default-fullname">Category  Name</label>
-                            <input type="text" value="" class="form-control" id="basic-default-fullname"  />
-                          </div>
-                          <div class="mb-3">
-                            <label for="formFile" class="form-label">Image</label>
-                            <input class="form-control" type="file" id="formFile" />
-                          </div>
-                          <button type="submit" class="btn btn-primary">Update</button>
-                        </form>
-                      </div>
-                    </div>
-
-                  </div>
-            </div>
-          
         </div>
     </div>
 
-
-
-<style>
-#updateForm{
-    display:none;
-}
-#createForm{
-    display:show;
-}
-</style>
-
-<script>
-function myFunction() {
-    var x = document.getElementById("createForm");
-    var y = document.getElementById("updateForm");
-
-  if (x.style.display === "none" || x.style.display === "") {
-    x.style.display = "block";
-    y.style.display = "none";
-  } else if (y.style.display === "none" || y.style.display === "") {
-    y.style.display = "block";
-    x.style.display = "none";
-  }
-}
-</script>
 @endsection

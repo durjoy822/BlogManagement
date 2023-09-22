@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('Admin.Category.Index',[
-            'blogCategories'=>BlogCategory::paginate(5),
+        return view('Admin.Category.index',[
+            'blogCategories'=>BlogCategory::orderBy('id', 'DESC')->paginate(5),
         ]);
     }
 
@@ -25,7 +25,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Category.index',[
+            'blogCategories'=>BlogCategory::orderBy('id', 'DESC')->paginate(5),
+        ]);
     }
 
     /**
@@ -51,18 +53,21 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-    //     $category=BlogCategory::find($id);
-    // return view('Admin.Category.Index',[
-    //     'category'=>$category,
-    // ]); 
+        return view('Admin.Category.index',[
+            'blogCategories'=>BlogCategory::orderBy('id', 'DESC')->paginate(5),
+            'blogcategory'=>BlogCategory::find($id),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BlogCategoryRequest $request, $id, BlogCategoryService $blogCategoryService)
     {
-        //
+        // dd($request->all());
+        $blogCategoryService->update($request, $id);
+        Session::flash('message', 'Blog category Updated successfully');
+        return redirect()->route('category.index');
     }
 
     /**
