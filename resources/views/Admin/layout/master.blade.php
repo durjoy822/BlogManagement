@@ -35,7 +35,7 @@
     </div>
     <!-- / Layout wrapper -->
 
-
+   @include('Admin.layout.tinymc')
     @include('Admin.layout.script')
   </body>
 </html>

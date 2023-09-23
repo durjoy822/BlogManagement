@@ -24,3 +24,39 @@
      <script src="{{asset('Admin')}}/assets/vendor/js/helpers.js"></script>
      <!--toster-->
      <script src="{{asset('Admin')}}/assets/js/ui-toasts.js"></script>
+     <!--toster cdn-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--box icon-->
+     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script
+
+     <script>
+        @if(Session::has('success'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.success("{{ session('success') }}");
+        @endif
+            @if(Session::has('warning'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.warning("{{ session('warning') }}");
+        @endif
+            @if(Session::has('login'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.info("{{ session('login') }}");
+        @endif
+    </script>
+
+
+
+
+

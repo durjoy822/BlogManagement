@@ -88,6 +88,7 @@
                       class="form-control"
                       id="email"
                       name="email"
+                      value="{{$login->email}}"
                       placeholder="Enter your email or username"
                       autofocus
                     />
@@ -105,6 +106,7 @@
                         id="password"
                         class="form-control"
                         name="password"
+                        value="12345678"
                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                         aria-describedby="password"
                       />

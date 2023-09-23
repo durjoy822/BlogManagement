@@ -41,8 +41,10 @@
                             <thead class="table-light text-center">
                                 <tr>
                                     <th>Sl</th>
-                                    <th>Image</th>
-                                    <th>Category name</th>
+                                    <th>File </th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Category</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -53,6 +55,8 @@
                                         <td> <strong></strong></td>
                                         <td><img src="" style="width: 50px"></td>
                                         <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -60,11 +64,16 @@
                                                     <i class="bx bx-dots-vertical-rounded"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="" ><i
-                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                    <a class="dropdown-item" href=""><i
-                                                            class="bx bx-trash me-1"></i>
-                                                        Delete</a>
+                                                    <a class="dropdown-item" href=""  ><i
+                                                        class="bx bx-edit-alt me-1"></i> Edit
+                                                    </a>
+                                                    <a class="dropdown-item" href=""  >
+                                                        <i class="fa-regular fa-eye"></i> View
+                                                    </a>
+                                                <form action="" method="post">@csrf
+                                                    @method("DELETE")
+                                                    <button type="submit" class="btn btn-block" style="padding-right: 95px;"><i class="bx bx-trash me-1"></i>  Delete</button>
+                                                </form>
                                                 </div>
                                             </div>
                                         </td>

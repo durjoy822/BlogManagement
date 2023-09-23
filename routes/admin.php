@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Authentication\AuthController;
 use App\Http\Controllers\Authentication\RegisterController;
+use App\Http\Controllers\TagController;
 
 Route::middleware(admin::class)->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -20,6 +21,7 @@ Route::post('/login/check', [RegisterController::class, 'loginCheck'])->name('lo
 
 
 Route::resource('/category', CategoryController::class);
+Route::resource('/tag', TagController::class);
 Route::resource('/video', VideoController::class);
 Route::resource('/audio', AudioController::class);
 

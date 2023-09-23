@@ -70,7 +70,7 @@
       <!-- Dashboard -->
       <li class="menu-item active">
         <a href="{{route('dashboard')}}" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+            <box-icon name='home' class="menu-icon" flip='horizontal' ></box-icon>
           <div data-i18n="Analytics">Dashboard</div>
         </a>
       </li>
@@ -79,22 +79,30 @@
       </li>
       <li class="menu-item">
         <a href="{{route('category.index')}}" class="menu-link">
-            <i class="menu-icon fa-solid fa-coins"></i>
+            {{-- <i class="menu-icon fa-solid fa-coins"></i> --}}
+            <box-icon  class="menu-icon" name='category' ></box-icon>
           <div data-i18n="Basic">Categories</div>
         </a>
       </li>
       <li class="menu-item">
         <a href="{{route('video.index')}}" class="menu-link">
-            <i class="menu-icon fa-solid fa-video mr-2"></i>
-          <div data-i18n="Basic">Video video</div>
+            <box-icon name='videos' class="menu-icon" type='solid' flip='horizontal' ></box-icon>
+          <div data-i18n="Basic">Video post</div>
         </a>
       </li>
       <li class="menu-item">
         <a href="{{route('audio.index')}}" class="menu-link">
-            <i class="menu-icon fa-solid fa-file-audio"></i>
+            <box-icon type='logo' class="menu-icon" name='deezer'></box-icon>
           <div data-i18n="Basic">Audio post</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{route('tag.index')}}" class="menu-link">
+            <box-icon type='solid' class="menu-icon" name='purchase-tag'></box-icon>
+          <div data-i18n="Basic">Tags</div>
         </a>
       </li>
     </ul>
 
   </aside>
+

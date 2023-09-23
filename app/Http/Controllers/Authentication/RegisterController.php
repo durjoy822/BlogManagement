@@ -40,7 +40,7 @@ class RegisterController extends Controller
     public function loginCheck(Request $request){
         // dd($request->all());
         if (Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password],$request->has('remember_token'))){
-            Session::flash('success','Login Successfully Done!');
+            Session::flash('login','Login Successfully Done!');
             return redirect()->route('dashboard');
         }else{
             Session::flash('warning','Ops, Information Wrong! please Provide a Right information.');
@@ -50,6 +50,7 @@ class RegisterController extends Controller
     }
     public function logout(){
         Auth::guard('admin')->logout();
+        Session::flash('warning',' logout Successfully.');
         return redirect()->route('login');
     }
 
