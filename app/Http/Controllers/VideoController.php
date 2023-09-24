@@ -80,8 +80,11 @@ class VideoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, VideoService $videoService)
     {
-        //
+        $videoService->destroy($id);
+        Session::flash('message','Video post data delete successfully');
+        return redirect()->route('video.index');
+
     }
 }

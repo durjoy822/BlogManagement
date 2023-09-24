@@ -71,7 +71,7 @@ class VideoService
                 Session::flash('message','Video file updated failed');
                 return redirect()->route('video.index');
             }
-            
+
             if ($request->file('thumbnail')){
                 if (file_exists($video->thumbnail)){
                     unlink($video->thumbnail);
@@ -93,9 +93,10 @@ class VideoService
 
 
     public function destroy($id){
-        $blog=Video::find($id);
-        $blog->image=$this->deleteImage($blog->image);
-        $blog->delete();
+        $video=Video::find($id);
+        $video->video_file=$this->deleteImage($video->video_file);
+        $video->thumbnail=$this->deleteImage($video->thumbnail);
+        $video->delete();
 
     }
 

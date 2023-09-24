@@ -27,8 +27,8 @@ class BlogCategoryFactory extends Factory
             'Marketplace',
             'Lifestyle',
             'Sport',
-            'Science',
-            'Health',
+            'Audio',
+            'Video',
             'Medical',
         ];
         return [
