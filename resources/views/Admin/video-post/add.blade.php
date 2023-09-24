@@ -1,6 +1,6 @@
 @extends('Admin.layout.master')
 @section('title')
-    Category Index
+    All video Add
 @endsection
 @section('content')
     <style>
@@ -23,7 +23,9 @@
                     </div>
                     <div class="card-body">
                         <div class="card_body">
-                            <form>
+                            <form action="{{route('video.store')}}" method="post" enctype="multipart/form-data">
+                                @csrf
+
                                 <div class="nav-align-top mb-4">
                                     <ul class="nav nav-tabs nav-fill" role="tablist">
                                         <!--video upload btn-->
@@ -65,12 +67,12 @@
                                             <h5>Embed</h5>
                                             <div>
                                                 <label for="exampleFormControlSelect2" class="form-label">Provider </label>
-                                                <select multiple class="form-select" id="exampleFormControlSelect2"
+                                                <select  name="provider" class="form-select" id="exampleFormControlSelect2"
                                                     aria-label="Multiple select example">
                                                     <option selected>Select on Embed link provider</option>
-                                                    <option value="Youtube"> 1.Youtube</option>
-                                                    <option value="Google"> 2.Google</option>
-                                                    <option value="Other"> 3.Other</option>
+                                                    <option value="Youtube"> Youtube</option>
+                                                    <option value="Google"> Google</option>
+                                                    <option value="Other"> Other</option>
                                                 </select>
                                             </div>
                                             <div class="mt-2">
@@ -91,32 +93,36 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">Video Thumbnails </label>
-                            <input type="file" class="form-control" id="basic-default-fullname" />
+                            <input type="file" name="thumbnail" class="form-control" id="basic-default-fullname" />
+                            <div class="error text-danger"> @error('thumbnail'){{ $message }} @enderror</div>
                         </div>
+
                         <div class="mb-3">
                             <label for="exampleFormControlSelect2" class="form-label">Select category</label>
-                            <select class="form-select" id="exampleFormControlSelect2" aria-label="Multiple select example">
-                                <option selected disabled>Open post category</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="form-select" name="category"  id="exampleFormControlSelect2" aria-label="Multiple select example">
+                                <option selected disabled>Select post category</option>
+                                @foreach ($BlogCategories as $category )
+                                    <option value="{{$category->name}}">{{$category->name}}</option>
+                                @endforeach
                             </select>
+                            <div class="error text-danger"> @error('category'){{ $message }} @enderror</div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlSelect2" class="form-label">Select Tag</label>
-                            <select class="form-select" id="exampleFormControlSelect2" aria-label="Multiple select example">
+                            <select class="form-select" name="tag" id="exampleFormControlSelect2" aria-label="Multiple select example">
                                 <option selected disabled>Selete tag</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach ($tags as $tag )
+                                <option value="{{$tag ->name}}">{{$tag->name}}</option>
+                               @endforeach
                             </select>
+                            <div class="error text-danger"> @error('tag'){{ $message }} @enderror</div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlSelect2" class="form-label">Visibility</label>
-                            <select class="form-select" id="exampleFormControlSelect2"
+                            <select class="form-select" name="status" id="exampleFormControlSelect2"
                                 aria-label="Multiple select example">
                                 <option selected disabled>Visibility Status</option>
-                                <option value="Published">Published</option>
+                                <option value="Public">Public</option>
                                 <option value="Privet">Privet</option>
                             </select>
                         </div>
@@ -133,9 +139,10 @@
                             <input type="text" name="title" class="form-control" id="basic-default-fullname"
                                 placeholder="Title" />
                         </div>
+                        <div class="error text-danger"> @error('title'){{ $message }} @enderror</div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-message">Summary</label>
-                            <textarea id="basic-default-message" class="form-control tinymce" name="summary" placeholder="Summary"></textarea>
+                            <textarea id="basic-default-message" rows="1" class="form-control tinymce" name="summary" placeholder="Summary"></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-message">Content</label>

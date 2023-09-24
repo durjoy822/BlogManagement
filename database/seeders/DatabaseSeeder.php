@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             // UserSeeder::class,
             AdminSeeder::class,
             TagSeeder::class,
+            VideoSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();

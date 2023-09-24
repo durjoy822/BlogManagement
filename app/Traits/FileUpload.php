@@ -4,6 +4,7 @@ namespace App\Traits;
 
 trait FileUpload
 {
+   
     public static function uploadImage($file, $path)
     {
         $fileName = time().'_'.uniqid().'.'.$file->getClientOriginalExtension();

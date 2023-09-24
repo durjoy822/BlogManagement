@@ -1,7 +1,7 @@
 <script>
     tinymce.init({
         selector: '.tinymce',
-        height: 300,
+        height: 200,
         menubar: true,
         dialog_type : "modal",
         relative_urls : false,

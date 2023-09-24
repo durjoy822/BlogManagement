@@ -34,9 +34,15 @@
                     </div>
                 @endif
                 <div class="card">
-                    <h5 class="card-header">Blog category table</h5>
+                    <h5 class="card-header">Blog category table
+                        <span class="px-2">
+                            <input type="search" class="form-control float-end  " placeholder="search.." style="width:300px">
+                        </span>
+                    </h5>
+
+
                     <div class="table-responsive text-nowrap">
-                        <table class="table">
+                        <table class="table" id="myTable">
                             <thead class="table-light text-center">
                                 <tr>
                                     <th>Sl</th>
@@ -137,5 +143,4 @@
 
         </div>
     </div>
-
 @endsection
