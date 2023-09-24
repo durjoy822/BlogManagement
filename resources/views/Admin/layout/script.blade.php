@@ -26,7 +26,12 @@
      <script src="{{asset('Admin')}}/assets/js/ui-toasts.js"></script>
      <!--toster cdn-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+    <!--account page setting-->
+     <script src="{{asset('Admin')}}/assets/js/pages-account-settings-account.js"></script>
+
+
+
+
      <script>
         @if(Session::has('success'))
             toastr.options =

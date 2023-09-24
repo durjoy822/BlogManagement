@@ -68,7 +68,7 @@
 
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
-      <li class="menu-item active">
+      <li class="menu-item ">
         <a href="{{route('dashboard')}}" class="menu-link">
             <i class="menu-icon fa-solid fa-house-circle-check"></i>
           <div data-i18n="Analytics">Dashboard</div>
@@ -77,7 +77,7 @@
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Manage Blog</span>
       </li>
-      <li class="menu-item">
+      <li class="menu-item ">
         <a href="{{route('category.index')}}" class="menu-link">
             <i class="menu-icon fa-solid fa-coins"></i>
           <div data-i18n="Basic">Categories</div>
@@ -105,3 +105,22 @@
 
   </aside>
 
+  <script>
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    // Add click event listeners to each menu item (except the always selected one)
+    menuItems.forEach(item => {
+        if (!item.classList.contains('active')) {
+            item.addEventListener('click', () => {
+                // Remove the 'active' class from all menu items
+                // menuItems.forEach(item => {
+                //     item.classList.remove('active');
+                // });
+
+                // Add the 'active' class to the clicked menu item
+                item.classList.add('active');
+            });
+        }
+    });
+    
+</script>

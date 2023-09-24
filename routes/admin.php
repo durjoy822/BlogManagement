@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AudioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -20,6 +21,7 @@ Route::post('/register/info', [RegisterController::class, 'info'])->name('info')
 Route::post('/login/check', [RegisterController::class, 'loginCheck'])->name('login.check');
 
 
+Route::resource('/account', AccountController::class);
 Route::resource('/category', CategoryController::class);
 Route::resource('/tag', TagController::class);
 Route::resource('/video', VideoController::class);

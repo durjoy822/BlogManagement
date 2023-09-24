@@ -42,7 +42,7 @@ id="layout-navbar"
                 </div>
               </div>
               <div class="flex-grow-1">
-                <span class="fw-semibold d-block">John Doe</span>
+                <span class="fw-semibold d-block"> {{Auth::guard('admin')->user()->name}}</span>
                 <small class="text-muted">Admin</small>
               </div>
             </div>
@@ -52,7 +52,7 @@ id="layout-navbar"
           <div class="dropdown-divider"></div>
         </li>
         <li>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="{{route('account.index')}}">
             <i class="bx bx-user me-2"></i>
             <span class="align-middle">My Profile</span>
           </a>
