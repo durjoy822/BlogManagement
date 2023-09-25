@@ -72,9 +72,9 @@ class AudioController extends Controller
      */
     public function update(AudioRequest $request, $id , AudioService $audioService)
     {
-        // dd($request->all());
+
         $audioService->update($request, $id);
-        Session::flash('message','Audio file store successfully');
+        Session::flash('message','Audio file updated successfully');
         return redirect()->route('audio.index');
     }
 

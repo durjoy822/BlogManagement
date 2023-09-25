@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Authentication\AuthController;
 use App\Http\Controllers\Authentication\RegisterController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 
 Route::middleware(admin::class)->group(function () {
@@ -23,6 +24,7 @@ Route::post('/login/check', [RegisterController::class, 'loginCheck'])->name('lo
 
 Route::resource('/account', AccountController::class);
 Route::resource('/category', CategoryController::class);
+Route::resource('/post', PostController::class);
 Route::resource('/tag', TagController::class);
 Route::resource('/video', VideoController::class);
 Route::resource('/audio', AudioController::class);

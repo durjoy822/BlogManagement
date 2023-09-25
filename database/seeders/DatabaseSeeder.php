@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             VideoSeeder::class,
             AudioSeeder::class,
             Admin_accountSeeder::class,
+            PostSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();

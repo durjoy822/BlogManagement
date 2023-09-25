@@ -94,7 +94,7 @@
                                 aria-label="Multiple select example">
                                 <option selected disabled>Select post category</option>
                                 @foreach ($BlogCategories as $category)
-                                    <option value="{{ $category->name }}" {{$audio->id==$category->id?'selected':''}}>{{ $category->name }}</option>
+                                    <option value="{{ $category->name }}" {{$category->id== $audio->id ? 'selected':''}} >{{ $category->name }}</option>
                                 @endforeach
                             </select>
                             <div class="error text-danger"> @error('category')

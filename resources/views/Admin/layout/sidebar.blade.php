@@ -84,6 +84,18 @@
         </a>
       </li>
       <li class="menu-item">
+        <a href="{{route('tag.index')}}" class="menu-link">
+            <i class=" menu-icon fa-solid fa-tag"></i>
+          <div data-i18n="Basic">Tags</div>
+        </a>
+      </li>
+      <li class="menu-item ">
+        <a href="{{route('post.index')}}" class="menu-link">
+            <i class=" menu-icon fa-solid fa-table-columns"></i>
+          <div data-i18n="Basic">All post</div>
+        </a>
+      </li>
+      <li class="menu-item">
         <a href="{{route('video.index')}}" class="menu-link">
             <i class=" menu-icon fa-regular fa-file-video"></i>
           <div data-i18n="Basic">Video post</div>
@@ -95,12 +107,7 @@
           <div data-i18n="Basic">Audio post</div>
         </a>
       </li>
-      <li class="menu-item">
-        <a href="{{route('tag.index')}}" class="menu-link">
-            <i class=" menu-icon fa-solid fa-tag"></i>
-          <div data-i18n="Basic">Tags</div>
-        </a>
-      </li>
+
     </ul>
 
   </aside>
@@ -122,5 +129,5 @@
             });
         }
     });
-    
+
 </script>

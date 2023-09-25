@@ -30,7 +30,7 @@ class VideoService
             $video->title = $request->title;
             $video->content = $request->content;
             $video->summary = $request->summary;
-            $video->creator ="Nayem";
+            $video->creator =Auth::guard('admin')->user()->name;
             if($request->video_file){
                 $video->video_file = $this->uploadImage($request->video_file,'video');
             }
@@ -61,7 +61,7 @@ class VideoService
             $video->title = $request->title;
             $video->content = $request->content;
             $video->summary = $request->summary;
-            $video->creator ="Nayem";
+            $video->creator =Auth::guard('admin')->user()->name;
             if ($request->file('video_file')){
                 if (file_exists($video->video_file)){
                     unlink($video->video_file);

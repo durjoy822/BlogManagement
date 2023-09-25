@@ -29,7 +29,7 @@ class AudioService
             $audio->title = $request->title;
             $audio->content = $request->content;
             $audio->summary = $request->summary;
-            $audio->creator ="Nayem";
+            $audio->creator =Auth::guard('admin')->user()->name;
             if($request->audio_file){
                 $audio->audio_file = $this->uploadImage($request->audio_file,'audio');
             }
@@ -59,7 +59,7 @@ class AudioService
             $audio->title = $request->title;
             $audio->content = $request->content;
             $audio->summary = $request->summary;
-            $audio->creator ="Nayem";
+            $audio->creator = Auth::guard('admin')->user()->name;
             if ($request->file('audio_file')){
                 if (file_exists($audio->audio_file)){
                     unlink($audio->audio_file);
