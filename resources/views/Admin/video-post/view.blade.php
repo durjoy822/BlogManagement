@@ -27,7 +27,7 @@
                             </tr>
                             <tr>
                                 <td>Category</td>
-                                <td>{{$video->category}}</td>
+                                <td>{{$video->Category->name}}</td>
                             </tr>
                             <tr>
                                 <td>Tag</td>
@@ -47,11 +47,16 @@
                             </tr>
                             <tr>
                                 <td>Thumbnail</td>
-                                <td><img src="{{$video->thumbnail}}"></td>
+                                <td><img src="{{asset($video->thumbnail)}}" style="width:70px"></td>
                             </tr>
                             <tr>
                                 <td>Uploaded video file</td>
-                                <td>{{$video->video_file}}</td>
+                                <td>
+                                    <video width="150" height="150" controls>
+                                    <source src="{{asset($video->video_file)}}"  type="video/ogg" style="width: 70px">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Video url</td>

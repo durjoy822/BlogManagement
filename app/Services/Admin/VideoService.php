@@ -21,10 +21,10 @@ class VideoService
 
         try {
             $video = new Video();
+            $video->category_id = $request->category_id;
             $video->video_url = $request->video_url;
             $video->provider = $request->provider;
             $video->embed_link = $request->embed_link;
-            $video->category = $request->category;
             $video->tag = $request->tag;
             $video->status = $request->status;
             $video->title = $request->title;
@@ -52,10 +52,10 @@ class VideoService
 
         try {
             $video=Video::find($id);
+            $video->category_id = $request->category_id;
             $video->video_url = $request->video_url;
             $video->provider = $request->provider;
             $video->embed_link = $request->embed_link;
-            $video->category = $request->category;
             $video->tag = $request->tag;
             $video->status = $request->status;
             $video->title = $request->title;
@@ -77,9 +77,6 @@ class VideoService
                     unlink($video->thumbnail);
                 }
                 $video->thumbnail =$this->uploadImage($request->thumbnail,'video');
-            }else{
-                Session::flash('message','thumbnail image file updated failed');
-                return redirect()->route('video.index');
             }
 
             $video->save();

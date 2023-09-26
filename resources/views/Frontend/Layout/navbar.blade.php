@@ -20,11 +20,11 @@
 
             </div>
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="#" >Home </a>
+                <li><a href="{{route('home')}}" >Home </a>
                 </li>
-                <li><a href='category.html'>Category post</a></li>
-                <li><a href='category.html'>post</a></li>
-                <li><a href='contact.html'>contact</a></li>
+                <li><a href='{{route('blog.category')}}'>Category post</a></li>
+                <li><a href='{{route('blog.details')}}'>post</a></li>
+                <li><a href='{{route('contact')}}'>contact</a></li>
 
             </ul>
         </div>

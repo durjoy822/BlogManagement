@@ -23,43 +23,43 @@ class VideoFactory extends Factory
 
     public function definition(): array
     {
-        $category = [
-            'Adventure',
-            'News',
-            'Video',
-            'Audio',
-            'Marketplace',
-        ];
-        $tag = [
-            'Athlete',
-            'Adventure',
-            'Beach',
-            'Dollar',
-            'Bitcoin',
-        ];
-        $provider = [
-            'Youtube',
-            'Google',
-            'Other',
-        ];
-        $status = [
-            'Public',
-            'Privet',
-        ];
+        // $category = [
+        //     '1',
+        //     '2',
+        //     '3',
+        //     '4',
+        //     '5',
+        // ];
+        // $tag = [
+        //     '1',
+        //     '2',
+        //     '3',
+        //     '4',
+        //     '5',
+        // ];
+        // $provider = [
+        //     'Youtube',
+        //     'Google',
+        //     'Other',
+        // ];
+        // $status = [
+        //     'Public',
+        //     'Privet',
+        // ];
 
-        return [
-            'category' => $this->faker->randomElement($category),
-            'tag' => $this->faker->randomElement($tag),
-            'provider' => $this->faker->randomElement($provider),
-            'status' => $this->faker->randomElement($status),
-            'title' => "Creating a Searchable Select Box in Laravel with AJAX",
-            'creator' => "Nayem",
-            'summary' => $this->faker->paragraph(),
-            'content' => $this->faker->paragraph(),
-            'video_url' => $this->faker->url,
-            'embed_link' => $this->faker->url,
-            'video_file' => $this->faker->url,
-            'thumbnail' => $this->faker->imageUrl(200, 200),
-        ];
+        // return [
+        //     'category' => $this->faker->randomElement($category),
+        //     'tag' => $this->faker->randomElement($tag),
+        //     'provider' => $this->faker->randomElement($provider),
+        //     'status' => $this->faker->randomElement($status),
+        //     'title' => "Creating a Searchable Select Box in Laravel with AJAX",
+        //     'creator' => "Nayem",
+        //     'summary' => $this->faker->paragraph(),
+        //     'content' => $this->faker->paragraph(),
+        //     'video_url' => $this->faker->url,
+        //     'embed_link' => $this->faker->url,
+        //     'video_file' => $this->faker->url,
+        //     'thumbnail' => $this->faker->imageUrl(200, 200),
+        // ];
     }
 }

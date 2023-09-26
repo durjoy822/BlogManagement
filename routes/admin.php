@@ -9,7 +9,13 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Authentication\AuthController;
 use App\Http\Controllers\Authentication\RegisterController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TagController;
+
+
+
+
+
 
 Route::middleware(admin::class)->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -22,12 +28,21 @@ Route::post('/register/info', [RegisterController::class, 'info'])->name('info')
 Route::post('/login/check', [RegisterController::class, 'loginCheck'])->name('login.check');
 
 
-Route::resource('/account', AccountController::class);
+Route::get('/setting', [SettingController::class, 'setting'])->name('setting.general');
+
+Route::get('/account', [AccountController::class, 'account'])->name('account.index');
+Route::post('/account/update/{id}', [AccountController::class, 'accountUpdate'])->name('account.update');
+
+
+
+
+
 Route::resource('/category', CategoryController::class);
 Route::resource('/post', PostController::class);
 Route::resource('/tag', TagController::class);
 Route::resource('/video', VideoController::class);
 Route::resource('/audio', AudioController::class);
+
 
 
 

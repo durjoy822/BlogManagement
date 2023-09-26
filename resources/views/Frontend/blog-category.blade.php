@@ -15,7 +15,7 @@ blog-category
                           <i class="fa fa-forward" aria-hidden="true"></i>
                             <span>All video</span>
                         </h6>
-                     <h2 >Category: <span class="text-danger btn btn-primary">All video</span> </h2>
+                     <h2 >Blog  Category: <span class="text-danger btn btn-primary">All video</span> </h2>
                 </div>
 
             </div>
@@ -231,25 +231,6 @@ blog-category
                             </li>
                         </ul>
                     </section>
-
-                    <section>
-                        <div class="widget HTML">
-                            <h2 class="title">INSTGRAM</h2>
-                            <div class="widget-content">
-                                <div class="instagram-feeds row-gallery">
-                                    <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/42cd81bc6fdf02b168a6c7731d6d41614c096b42/e5a9a/images/instagram01.jpg" alt="Instagram Image"></a>
-                                    <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/2be5117f0f8791105eaa8f6225940dc85de3d501/05e6b/images/instagram02.jpg" alt="Instagram Image"></a>
-                                    <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/c4b5d84463de168990caf785b476171e2933bbe7/2ec3b/images/instagram03.jpg" alt="Instagram Image"></a>
-                                    <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/2a98d70ce3ed39151b234625df6e89fdf723ed34/06daf/images/instagram04.jpg" alt="Instagram Image"></a>
-                                    <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/434639103b5df129424f68274416a82923e2a1b9/d319f/images/instagram05.jpg" alt="Instagram Image"></a>
-                                    <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/a33e2f5ca15a1a696a91663f30a66f33867114d4/7a887/images/instagram06.jpg" alt="Instagram Image"></a>
-                                    <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/e3c5b50e266fd4d6371d64136ca97e0c194a807e/ef3f4/images/instagram07.jpg" alt="Instagram Image"></a>
-                                    <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/ae08e2764ca18872d1665a7608bbaeacb6e54797/0858e/images/instagram08.jpg" alt="Instagram Image"></a>
-                                    <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/42cd81bc6fdf02b168a6c7731d6d41614c096b42/ee714/images/instagram09.jpg" alt="Instagram Image"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </section> <!-- End inta -->
 
                 </div> <!-- End Sidebar -->
             </div><!-- End-col-md-4 -->

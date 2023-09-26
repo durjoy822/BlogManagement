@@ -13,61 +13,45 @@
             <div class="col-md-12 py-2 order-md-first">
                 <div class="card">
                     <h5 class="card-header">Video post details
-                     <a href="{{route('video.index')}}"><span class="float-end"> <i class="fa-solid fa-backward"></i> Back</span></a>
+                     <a href="{{route('post.index')}}"><span class="float-end"> <i class="fa-solid fa-backward"></i> Back</span></a>
                     </h5>
                     <div class="table-responsive text-nowrap">
                         <table class="table border col-12">
                             <tr>
                                 <td>SL</td>
-                                <td>{{$video->id}}</td>
+                                <td>{{$post->id}}</td>
                             </tr>
                             <tr>
                                 <td>Creator</td>
-                                <td>{{$video->creator}}</td>
+                                <td>{{$post->creator}}</td>
                             </tr>
                             <tr>
                                 <td>Category</td>
-                                <td>{{$video->category}}</td>
+                                <td>{{$post->Category->name}}</td>
                             </tr>
                             <tr>
                                 <td>Tag</td>
-                                <td>{{$video->tag}}</td>
+                                <td>{{$post->tag}}</td>
                             </tr>
                             <tr>
                                 <td>Title</td>
-                                <td>{{$video->title}}</td>
+                                <td>{{$post->title}}</td>
                             </tr>
                             <tr>
                                 <td>Summary</td>
-                                <td>{!!$video->summary!!}</td>
+                                <td>{!!$post->summary!!}</td>
                             </tr>
                             <tr>
                                 <td>Content</td>
-                                <td>{!!$video->content!!}</td>
+                                <td>{!!$post->content!!}</td>
                             </tr>
                             <tr>
                                 <td>Thumbnail</td>
-                                <td><img src="{{$video->thumbnail}}"></td>
-                            </tr>
-                            <tr>
-                                <td>Uploaded video file</td>
-                                <td>{{$video->video_file}}</td>
-                            </tr>
-                            <tr>
-                                <td>Video url</td>
-                                <td>{{$video->video_url}}</td>
-                            </tr>
-                            <tr>
-                                <td>Embed video provider</td>
-                                <td>{{$video->provider}}</td>
-                            </tr>
-                            <tr>
-                                <td>Embed video link</td>
-                                <td>{{$video->embed_link}}</td>
+                                <td><img src="{{asset($post->thumbnail)}}" style="width: 70px"></td>
                             </tr>
                             <tr>
                                 <td>Status</td>
-                                <td>{{$video->status}}</td>
+                                <td>{{$post->status}}</td>
                             </tr>
                         </table>
                     </div>

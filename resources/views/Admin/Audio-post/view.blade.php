@@ -47,7 +47,7 @@
                             </tr>
                             <tr>
                                 <td>Thumbnail</td>
-                                <td><img src="{{$audio->thumbnail}}"></td>
+                                <td><img src="{{asset($audio->thumbnail)}}"></td>
                             </tr>
                             <tr>
                                 <td>Uploaded video file</td>

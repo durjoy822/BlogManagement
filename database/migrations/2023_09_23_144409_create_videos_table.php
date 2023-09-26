@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
+            $table->text('category_id');
             $table->text('title');
             $table->longText('summary')->nullable();
             $table->longText('content')->nullable();
-            $table->text('category');
             $table->text('tag');
             $table->text('video_url')->nullable();
             $table->text('provider')->nullable();

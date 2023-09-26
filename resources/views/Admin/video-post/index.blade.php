@@ -45,7 +45,7 @@
                                     <th>video File </th>
                                     <th>Title</th>
                                     <th>Category</th>
-                                    <th>Author</th>
+                                    <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -55,10 +55,14 @@
 
                                         <td> <strong> {{ $loop->iteration }}</strong></td>
                                         <td><img src="{{asset($video->thumbnail)}}" style="width: 50px"></td>
-                                        <td> {{ substr($video->video_file, 0, 20) }}</td>
+                                        <td>
+                                            <video width="100" height="100" controls>
+                                                <source src="{{asset($video->video_file)}}"  type="video/ogg" style="width: 70px">
+                                            </video>
+                                        </td>
                                         <td> {{ substr($video->title, 0, 20) }}</td>
-                                        <td>{{$video->category}}</td>
-                                        <td>{{$video->creator}}</td>
+                                        <td>{{$video->Category->name}}</td>
+                                        <td>{{$video->status}}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

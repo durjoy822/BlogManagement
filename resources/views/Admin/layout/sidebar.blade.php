@@ -109,7 +109,14 @@
       </li>
 
     </ul>
-
+<div>
+    <li class="menu-item">
+        <a href="{{route('setting.general')}}" class="menu-link">
+            <i class="menu-icon fa-solid fa-gear"></i>
+          <div data-i18n="Basic">Settings</div>
+        </a>
+      </li>
+</div>
   </aside>
 
   <script>

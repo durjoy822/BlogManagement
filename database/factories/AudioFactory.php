@@ -17,18 +17,18 @@ class AudioFactory extends Factory
     public function definition(): array
     {
         $category = [
-            'Adventure',
-            'Audio',
-            'Technology',
-            'Video',
-            'Marketplace',
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
         ];
         $tag = [
-            'Athlete',
-            'Adventure',
-            'Beach',
-            'Dollar',
-            'Bitcoin',
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
         ];
         $status = [
             'Public',

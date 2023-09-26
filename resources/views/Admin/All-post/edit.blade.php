@@ -53,11 +53,11 @@
 
                         <div class="mb-3">
                             <label for="exampleFormControlSelect2" class="form-label">Select category</label>
-                            <select class="form-select" name="category" id="exampleFormControlSelect2"
+                            <select class="form-select" name="category_id" id="exampleFormControlSelect2"
                                 aria-label="Multiple select example">
                                 <option selected disabled>Select post category</option>
                                 @foreach ($BlogCategories as $category)
-                                    <option value="{{ $category->name }}"{{ $post->id == $category->id ? 'selected' : '' }}>
+                                    <option value="{{ $category->id }}"{{  $category->id ==  $post->category_id ? 'selected' : '' }}>
                                         {{ $category->name }}</option>
                                 @endforeach
                             </select>
@@ -72,7 +72,7 @@
                                 aria-label="Multiple select example">
                                 <option selected disabled>Selete tag</option>
                                 @foreach ($tags as $tag)
-                                    <option value="{{ $tag->name }}" {{ $post->id == $tag->id ? 'selected' : '' }}>
+                                    <option value="{{ $tag->name }}" {{ $tag->name == $post->tag ? 'selected' : '' }}>
                                         {{ $tag->name }}</option>
                                 @endforeach
                             </select>

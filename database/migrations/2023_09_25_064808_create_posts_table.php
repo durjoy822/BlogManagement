@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->text('category_id');
+            $table->text('tag');
             $table->text('title');
             $table->longText('summary')->nullable();
             $table->longText('content')->nullable();
-            $table->text('category');
-            $table->text('tag');
             $table->text('thumbnail')->nullable();
             $table->string('status')->default('Public','Privet');
             $table->string('creator')->nullable();

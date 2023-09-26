@@ -56,8 +56,11 @@
                                         <div class="tab-pane fade show active" id="video-upload" role="tabpanel">
                                             <h5>Video upload</h5>
                                             <input type="file" class="form-control" name="video_file">
-                                            <div><img src="{{asset($video->video_file)}}" style="width: 100px"></div>
-                                            <div>{{$video->video_file}}</div>
+                                            <div class="mt-2">
+                                                <video width="100" height="150" controls class="form-control ">
+                                                    <source src="{{asset($video->video_file)}}"  type="video/ogg" style="width: 70px">
+                                                </video>
+                                            </div>
                                         </div>
                                         <!--url-->
                                         <div class="tab-pane fade" id="url" role="tabpanel">
@@ -103,10 +106,10 @@
 
                         <div class="mb-3">
                             <label for="exampleFormControlSelect2" class="form-label">Select category</label>
-                            <select class="form-select" name="category"  id="exampleFormControlSelect2" aria-label="Multiple select example">
+                            <select class="form-select" name="category_id"  id="exampleFormControlSelect2" aria-label="Multiple select example">
                                 <option selected disabled>Select post category</option>
                                 @foreach ($BlogCategories as $category )
-                                    <option value="{{$category->name}}"{{$video->id==$category->id?'selected':''}}>{{$category->name}}</option>
+                                    <option value="{{$category->id}}"{{$category->id==$video->category_id?'selected':''}}>{{$category->name}}</option>
                                 @endforeach
                             </select>
                             <div class="error text-danger"> @error('category'){{ $message }} @enderror</div>
@@ -116,7 +119,7 @@
                             <select class="form-select" name="tag" id="exampleFormControlSelect2" aria-label="Multiple select example">
                                 <option selected disabled>Selete tag</option>
                                 @foreach ($tags as $tag )
-                                <option value="{{$tag ->name}}" {{ $video->id == $tag->id ? 'selected' : '' }}>{{$tag->name}}</option>
+                                <option value="{{$tag ->name}}" {{  $tag->name == $video->tag? 'selected' : '' }}>{{$tag->name}}</option>
                                @endforeach
                             </select>
                             <div class="error text-danger"> @error('tag'){{ $message }} @enderror</div>

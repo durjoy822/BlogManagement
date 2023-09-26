@@ -56,7 +56,7 @@
                                         <td> <strong> {{ $loop->iteration }}</strong></td>
                                         <td><img src="{{asset($post->thumbnail)}}" style="width: 50px"></td>
                                         <td> {{ substr($post->title, 0, 20) }}</td>
-                                        <td>{{$post->category}}</td>
+                                        <td>{{$post->Category->name}}</td>
                                         <td>{{$post->tag}}</td>
                                         <td>{{$post->status}}</td>
                                         <td>
@@ -69,10 +69,10 @@
                                                     <a class="dropdown-item" href="{{route('post.edit',$post->id)}}"  ><i
                                                         class="bx bx-edit-alt me-1"></i> Edit
                                                     </a>
-                                                    <a class="dropdown-item" href=""  >
+                                                    <a class="dropdown-item" href="{{route('post.show',$post->id)}}"  >
                                                         <i class="fa-regular fa-eye"></i> View
                                                     </a>
-                                                <form action="" method="post">@csrf
+                                                <form action="{{route('post.destroy',$post->id)}}" method="post">@csrf
                                                     @method("DELETE")
                                                     <button type="submit" class="btn btn-block" style="padding-right: 95px;"><i class="bx bx-trash me-1"></i>  Delete</button>
                                                 </form>

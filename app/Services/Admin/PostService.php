@@ -21,7 +21,7 @@ class PostService
 
         try {
             $post = new Post();
-            $post->category = $request->category;
+            $post->category_id = $request->category_id;
             $post->tag = $request->tag;
             $post->status = $request->status;
             $post->title = $request->title;
@@ -45,23 +45,23 @@ class PostService
         DB::beginTransaction();
 
         try {
+            // dd($request->all());
             $post=Post::find($id);
-            $post->category = $request->category;
+            $post->category_id = $request->category_id;
             $post->tag = $request->tag;
             $post->status = $request->status;
             $post->title = $request->title;
             $post->content = $request->content;
             $post->summary = $request->summary;
+
             $post->creator =Auth::guard('admin')->user()->name;
             if ($request->file('thumbnail')){
                 if (file_exists($post->thumbnail)){
                     unlink($post->thumbnail);
                 }
                 $post->thumbnail =$this->uploadImage($request->thumbnail,'post');
-            }else{
-                Session::flash('message','thumbnail image file updated failed');
-                return redirect()->route('post.index');
             }
+          
             $post->save();
             DB::commit();
 
