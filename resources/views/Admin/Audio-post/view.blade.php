@@ -27,7 +27,7 @@
                             </tr>
                             <tr>
                                 <td>Category</td>
-                                <td>{{$audio->category}}</td>
+                                <td>{{$audio->Category->name}}</td>
                             </tr>
                             <tr>
                                 <td>Tag</td>
@@ -47,14 +47,14 @@
                             </tr>
                             <tr>
                                 <td>Thumbnail</td>
-                                <td><img src="{{asset($audio->thumbnail)}}"></td>
+                                <td><img src="{{asset($audio->thumbnail)}}" style="width: 70px"></td>
                             </tr>
                             <tr>
-                                <td>Uploaded video file</td>
+                                <td>Uploaded audio file</td>
                                 <td>{{$audio->audio_file}}</td>
                             </tr>
                             <tr>
-                                <td>Video url</td>
+                                <td>Audio url</td>
                                 <td>{{$audio->audio_url}}</td>
                             </tr>
                             <tr>

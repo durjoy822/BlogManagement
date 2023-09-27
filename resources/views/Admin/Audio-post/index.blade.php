@@ -55,7 +55,7 @@
                                         <td><img src="{{asset($audio->thumbnail)}}" style="width: 50px"></td>
                                         <td>{{Str::substr($audio->audio_file, 0, 20)}}..</td>
                                         <td>{{$audio->title}}</td>
-                                        <td>{{$audio->category}}</td>
+                                        <td>{{$audio->Category->name}}</td>
                                         <td>{{$audio->creator}}</td>
                                         <td>
                                             <div class="dropdown">

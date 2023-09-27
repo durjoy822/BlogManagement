@@ -92,11 +92,11 @@
 
                         <div class="mb-3">
                             <label for="exampleFormControlSelect2" class="form-label">Select category</label>
-                            <select class="form-select" name="category" id="exampleFormControlSelect2"
+                            <select class="form-select" name="category_id" id="exampleFormControlSelect2"
                                 aria-label="Multiple select example">
                                 <option selected disabled>Select post category</option>
                                 @foreach ($BlogCategories as $category)
-                                    <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                    <option value="{{$category->id}}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                             <div class="error text-danger"> @error('category')

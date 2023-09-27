@@ -25,7 +25,7 @@ class AudioRequest extends FormRequest
             'title'=>'required',
              'summary'=>'required',
              'content'=>'required',
-             'category'=>'required',
+             'category_id'=>'required',
              'tag'=>'required',
         ];
     }

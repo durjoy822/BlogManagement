@@ -29,9 +29,9 @@ class TagFactory extends Factory
                 'Bitcoin',
                 'Crypto',
                 'Health',
-                'Social Media',
                 'Beauty',
                 'Lifestyle',
+                'phone'
             ]),
         ];
     }

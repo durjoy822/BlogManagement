@@ -21,9 +21,9 @@ class AudioService
 
         try {
             $audio = new Audio();
+            $audio->category_id = $request->category_id;
             $audio->audio_url = $request->audio_url;
             $audio->embed_link = $request->embed_link;
-            $audio->category = $request->category;
             $audio->tag = $request->tag;
             $audio->status = $request->status;
             $audio->title = $request->title;
@@ -51,9 +51,9 @@ class AudioService
 
         try {
             $audio=Audio::find($id);
+            $audio->category_id = $request->category_id;
             $audio->audio_url = $request->audio_url;
             $audio->embed_link = $request->embed_link;
-            $audio->category = $request->category;
             $audio->tag = $request->tag;
             $audio->status = $request->status;
             $audio->title = $request->title;
@@ -65,19 +65,12 @@ class AudioService
                     unlink($audio->audio_file);
                 }
                 $audio->audio_file =$this->uploadImage($request->audio_file,'audio');
-            }else{
-                Session::flash('message','audio file updated failed');
-                return redirect()->route('audio.index');
             }
-
             if ($request->file('thumbnail')){
                 if (file_exists($audio->thumbnail)){
                     unlink($audio->thumbnail);
                 }
                 $audio->thumbnail =$this->uploadImage($request->thumbnail,'audio');
-            }else{
-                Session::flash('message','thumbnail image file updated failed');
-                return redirect()->route('audio.index');
             }
             $audio->save();
             DB::commit();

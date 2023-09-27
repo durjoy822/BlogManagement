@@ -34,7 +34,11 @@
                     </div>
                 @endif
                 <div class="card">
-                    <h5 class="card-header">Tags table</h5>
+                    <h5 class="card-header">Tags table
+                        <span class="px-2 col-md-2 py-3">
+                            <input type="search" class="form-control float-end  " placeholder="Search.." style="width:250px">
+                        </span>
+                    </h5>
                     <div class="table-responsive text-nowrap">
                         <table class="table">
                             <thead class="table-light text-center">

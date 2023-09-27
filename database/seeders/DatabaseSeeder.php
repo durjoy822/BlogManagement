@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             TagSeeder::class,
             // VideoSeeder::class,
-            AudioSeeder::class,
+            // AudioSeeder::class,
             Admin_accountSeeder::class,
             // PostSeeder::class,
         ]);

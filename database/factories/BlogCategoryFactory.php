@@ -23,13 +23,10 @@ class BlogCategoryFactory extends Factory
             'Adventure',
             'News',
             'Technology',
-            'Business',
-            'Marketplace',
-            'Lifestyle',
             'Sport',
             'Audio',
             'Video',
-            'Medical',
+
         ];
         return [
             'name'=> $this->faker->unique()->randomElement($BlogCategory),

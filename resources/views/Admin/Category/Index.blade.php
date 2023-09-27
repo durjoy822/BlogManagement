@@ -35,8 +35,8 @@
                 @endif
                 <div class="card">
                     <h5 class="card-header">Blog category table
-                        <span class="px-2">
-                            <input type="search" class="form-control float-end  " placeholder="search.." style="width:300px">
+                        <span class="px-2 col-md-2 py-3">
+                            <input type="search" class="form-control float-end  " placeholder="search.." style="width:250px">
                         </span>
                     </h5>
 
