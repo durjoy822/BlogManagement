@@ -16,34 +16,35 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-        // $category = [
-        //     '1',
-        //     '2',
-        //     '3',
-        //     '4',
-        //     '5',
-        // ];
-        // $tag = [
-        //     '1',
-        //     '2',
-        //     '3',
-        //     '4',
-        //     '5',
-        // ];
-        // $status = [
-        //     'Public',
-        //     'Privet',
-        // ];
+        $category = [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+        ];
+        $tag = [
+            'Athlete',
+            'Adventure',
+            'Beach',
+            'Dollar',
+            'auto',
 
-        // return [
-        //     'category' => $this->faker->randomElement($category),
-        //     'tag' => $this->faker->randomElement($tag),
-        //     'status' => $this->faker->randomElement($status),
-        //     'title' => "Creating a Searchable Select Box in Laravel with AJAX",
-        //     'creator' => "Nayem",
-        //     'summary' => $this->faker->paragraph(),
-        //     'content' => $this->faker->paragraph(),
-        //     'thumbnail' => $this->faker->imageUrl(200, 200),
-        // ];
+        ];
+        $status = [
+            'Public',
+            'Privet',
+        ];
+
+        return [
+            'category_id' => $this->faker->randomElement($category),
+            'tag' => $this->faker->randomElement($tag),
+            'status' => $this->faker->randomElement($status),
+            'title' => "Creating a Searchable Select Box in Laravel with AJAX",
+            'creator' => "Nayem",
+            'summary' => $this->faker->paragraph(),
+            'content' => $this->faker->paragraph(),
+            'thumbnail' => $this->faker->imageUrl(200, 200),
+        ];
     }
 }

@@ -11,44 +11,19 @@ blog-details
                 <article class="post">
                     <header>
                         <div class="title">
-                            <h2><a href="#">women camping hiking travel</a></h2>
-                            <p>Leo reco dolor amet nullam consequat etiam feugiat</p>
+                            <p>Category: {{$postDetails->Category->name}}</p>
+                            <h2><a href="#">{{$postDetails->title}}</a></h2>
+                            <p>{!!$postDetails->summary!!}</p>
                         </div>
                         <div class="meta">
-                            <time class="published" datetime="2017-01-14">November 1, 2017</time>
-                            <a href="#" class="author"><span class="name">CATHERINE DOE</span><img src="{{asset('Frontend')}}/0ec005ed0443e9a8d1c16f2bccbc9c76cb66e0f5/aaa2d/images/author-avatar.png" alt="" /></a>
+                            <time class="published" datetime="2017-01-14">{{ \Carbon\Carbon::parse($postDetails->created_at)->format('F j, Y') }}</time>
+                            <a href="#" class="author"><span class="name">{{$postDetails->creator}}</span><img src="{{asset($creator->image)}}" alt="" /></a>
                         </div>
                     </header>
-                    <div class="image featured"><img src="{{asset('Frontend')}}/4bf284e26c018f9425f060084cc646b882907e4e/3352b/images/large-post01.jpg" alt="" /></div>
-                    <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl.
-                        Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim,
-                        ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper.
-                        Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae,
-                        ultricies congue gravida diam non fringilla.</p>
-                        <div class="excerpt"><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum exercitation ullamco laboris nisi ut aliquip.</p></div>
-                        <p>Leo reco dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-                        <blockquote><p>Stet clita kasd gubergren, no sea takimata sanctus est Leo reco dolor sit amet vultatup duista.</p></blockquote>
-                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril.</p>
-                        <h2>Heading 1</h2>
-                        <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse lorem ipLeo reco dolor sit amet.</p>
-                        <h2>Heading 2</h2>
-                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. At vero eos et accusam et justo.</p>
-                        <h2>Heading 3</h2>
-                        <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum hendrerit in vulputate velit esse molestie.</p>
-                        <p>Leo reco dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-                        <p><code>Stet clita kasd gubergren, no sea takimata sanctus est Leo reco dolor sit amet.</code></p>
-                        <p>Leo reco dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Leo reco dolor sit amet.</p>
-                        <div class="note">
-                            <ol>
-                                <li>Leo reco</li>
-                                <li>Sit amet vultatup nonumy</li>
-                                <li>Duista sed diam</li>
-                            </ol>
-                            <div class="clear"></div>
+                    <div class="image featured"><img src="{{asset($postDetails->thumbnail)}}" alt="" /></div>
+                        <div>
+                            {!!$postDetails->content!!}
                         </div>
-
-                        <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.</p>
-
                         <footer>
 
                             <div class="social actions">
@@ -71,13 +46,6 @@ blog-details
                             </ul>
                         </footer>
                     </article>
-
-
-                    <!-- Pagination -->
-                    <ul class="actions pagination">
-                        <li><a href="#" class="disabled button big previous">Previous Post</a></li>
-                        <li><a href="#" class="button big next">Next Post</a></li>
-                    </ul>
                     <div class="post-related post-block">
                         <h4 class="heading"><span>You Might Also Like</span></h4>
                         <div class="related">

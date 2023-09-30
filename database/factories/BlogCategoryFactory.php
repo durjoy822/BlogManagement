@@ -20,12 +20,11 @@ class BlogCategoryFactory extends Factory
      public function definition(): array
     {
         $BlogCategory = [
-            'Adventure',
-            'News',
             'Technology',
-            'Sport',
-            'Audio',
-            'Video',
+            'life style',
+            'premium Phone',
+            'Nature',
+            'Road blog',
 
         ];
         return [

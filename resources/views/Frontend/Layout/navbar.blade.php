@@ -20,10 +20,20 @@
 
             </div>
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="{{route('home')}}" >Home </a>
+                    <li><a href="{{route('home')}}" >Home </a></li>
+                    <li><a href="{{route('home')}}" >All blog category </a>
+						<ul class="dropdown-menu">
+                            @foreach ($categories as $category)
+                            <li><a href='{{route('blog.category')}}'>{{$category->name}}</a></li>
+                            @endforeach
+						</ul>
+					</li>
                 </li>
-                <li><a href='{{route('blog.category')}}'>Category post</a></li>
-                <li><a href='{{route('blog.details')}}'>post</a></li>
+                <li><a href='{{route('blog.category')}}'>Audio</a></li>
+                <li><a href='{{route('blog.category')}}'>Video</a></li>
+
+                {{-- <li><a href='{{route('blog.details')}}'>post</a></li> --}}
+
                 <li><a href='{{route('contact')}}'>contact</a></li>
 
             </ul>

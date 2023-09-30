@@ -53,7 +53,6 @@ class PostService
             $post->title = $request->title;
             $post->content = $request->content;
             $post->summary = $request->summary;
-
             $post->creator =Auth::guard('admin')->user()->name;
             if ($request->file('thumbnail')){
                 if (file_exists($post->thumbnail)){
@@ -61,7 +60,7 @@ class PostService
                 }
                 $post->thumbnail =$this->uploadImage($request->thumbnail,'post');
             }
-          
+
             $post->save();
             DB::commit();
 
