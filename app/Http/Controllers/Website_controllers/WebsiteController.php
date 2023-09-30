@@ -19,9 +19,10 @@ class WebsiteController extends Controller
             'creator'=>Admin_account::first(),
         ]);
     }
-    public function blogCategory(){
+    public function blogCategory($id){
         return view('Frontend.blog-category',[
             'categories'=>BlogCategory::all(),
+            'postCategories'=>Post::where('category_id',$id)->get(),
         ]);
     }
     public function blogDetails($id){

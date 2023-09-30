@@ -15,7 +15,10 @@ blog-category
                           <i class="fa fa-forward" aria-hidden="true"></i>
                             <span>All video</span>
                         </h6>
-                     <h2 >Blog  Category: <span class="text-danger btn btn-primary">All video</span> </h2>
+                        @foreach ($postCategories as  $postCategory  )
+
+                        <h2 >Blog  Category: <span class="text-danger btn btn-primary"> {{$postCategory ->Category->name}}</span> </h2>
+                        @endforeach
                 </div>
 
             </div>

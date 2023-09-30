@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [WebsiteController::class,'Home'])->name('home');
-Route::get('/blog/category', [WebsiteController::class,'blogCategory'])->name('blog.category');
+Route::get('/blog/category/{id}', [WebsiteController::class,'blogCategory'])->name('blog.category');
 Route::get('/blog/details/{id}', [WebsiteController::class,'blogDetails'])->name('blog.details');
 Route::get('/contact', [WebsiteController::class,'contact'])->name('contact');
 
