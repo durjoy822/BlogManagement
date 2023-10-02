@@ -76,7 +76,7 @@
                                                 <select  name="provider" class="form-select" id="exampleFormControlSelect2"
                                                     aria-label="Multiple select example">
                                                     <option selected>Select on Embed link provider</option>
-                                                    <option value="Youtube" {{$video->provider=="Youtubr"?'selected':''}}> Youtube</option>
+                                                    <option value="Youtube" {{$video->provider=="Youtube"?'selected':''}}> Youtube</option>
                                                     <option value="Google" {{$video->provider=="Google"?'selected':''}}> Google</option>
                                                     <option value="Other" {{$video->provider=="Other"?'selected':''}}> Other</option>
                                                 </select>

@@ -43,7 +43,7 @@ Home
 								<a href="#" class="author"><span class="name">{{$post->creator}}</span><img src="{{asset($creator->image)}}" alt="" /></a>
 							</div>
 						</header>
-						<a href="{{route('blog.details', ['id'=>$post->id])}}" class="image featured"><img src="{{asset($post->thumbnail)}}" alt="" /></a>
+						<a href="{{route('blog.details', ['id'=>$post->id])}}" class="image featured"><img style="height:300px" src="{{asset($post->thumbnail)}}" alt="" /></a>
 						<p>{{ substr($post->content, 0, 300)}}..</p>
 						<footer>
 							<ul class="actions">

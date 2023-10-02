@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Website_controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin_account;
+use App\Models\Audio;
 use App\Models\BlogCategory;
 use App\Models\Post;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +24,8 @@ class WebsiteController extends Controller
     public function blogCategory($id){
         return view('Frontend.blog-category',[
             'categories'=>BlogCategory::all(),
-            'postCategories'=>Post::where('category_id',$id)->get(),
+            'postCategories'=>Post::where('category_id',$id)->where('status','Public')->get(),
+            'audioCategories'=>Audio::where('category_id',$id)->where('status','Public')->get(),
         ]);
     }
     public function blogDetails($id){
