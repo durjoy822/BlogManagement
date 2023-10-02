@@ -14,7 +14,6 @@ Route::get('/contact', [WebsiteController::class,'contact'])->name('contact');
 
 
 
-Route::get('/max', [WebsiteController::class,'contact'])->name('contact');
 
 
 // Route::get('/', function () {
