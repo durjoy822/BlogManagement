@@ -13,6 +13,10 @@ Route::get('/blog/details/{id}', [WebsiteController::class,'blogDetails'])->name
 Route::get('/contact', [WebsiteController::class,'contact'])->name('contact');
 
 
+
+Route::get('/max', [WebsiteController::class,'contact'])->name('contact');
+
+
 // Route::get('/', function () {
 //     return view('Frontend/home');
 // });
