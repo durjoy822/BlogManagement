@@ -37,33 +37,19 @@ blog-details
                         <h4 class="heading"><span>You Might Also Like</span></h4>
                         <div class="related">
                             <ul class="row">
+                                @foreach ($posts as $post )
                                 <li class="item col-lg-4 col-md-4 col-sm-4">
                                     <div class="thumb">
-                                        <a href="#"><img src="{{asset('Frontend')}}/b80bf8a16f6952a0c64caf5345af0d780ac015a7/24884/images/relate-post01.jpg" alt="post relate"></a>
+                                        <a href="{{route('blog.details',$post->id)}}"><img src="{{asset($post->thumbnail)}}" style="height: 157px" alt="post relate"></a>
                                     </div>
                                     <h5 class="item-title">
-                                        <a href="#">Seitan High Life reprehenderit consectetur cupidatat kogi</a>
+                                        <a href="{{route('blog.details',$post->id)}}">{{$post->title}}</a>
                                     </h5>
-                                    <time class="published" datetime="2017-10-06">October 7, 2017</time>
+                                    <time class="published" datetime="2017-10-06">
+                                        {{ \Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}
+                                    </time>
                                 </li>
-                                <li class="item col-lg-4 col-md-4 col-sm-4">
-                                    <div class="thumb">
-                                        <a href="#"><img src="{{asset('Frontend')}}/6ffdc87e6e6ae9755ed06acc494ac797359ce963/5c1d1/images/relate-post02.jpg" alt="post relate"></a>
-                                    </div>
-                                    <h5 class="item-title">
-                                        <a href="#">Seitan High Life reprehenderit consectetur cupidatat kogi</a>
-                                    </h5>
-                                    <time class="published" datetime="2017-10-06">October 7, 2017</time>
-                                </li>
-                                <li class="item col-lg-4 col-md-4 col-sm-4">
-                                    <div class="thumb">
-                                        <a href="#"><img src="{{asset('Frontend')}}/63e1192cba590ec85d1c090bffec7a3bf4dbbe74/cda41/images/relate-post03.jpg" alt="post relate"></a>
-                                    </div>
-                                    <h5 class="item-title">
-                                        <a href="#">Seitan High Life reprehenderit consectetur cupidatat kogi</a>
-                                    </h5>
-                                    <time class="published" datetime="2017-10-06">October 7, 2017</time>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -90,7 +76,7 @@ blog-details
                                     </div>
                                 </div>
                             </div>
-                          
+
                         </div>
                     </div>
                     <!-- Blog Pagination Ends -->

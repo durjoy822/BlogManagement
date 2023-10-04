@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>Login/register </title>
     @include('Frontend.Layout.head')
     <style>
         body {
@@ -70,66 +70,84 @@
             border: none;
             cursor: pointer;
         }
+        .Register{
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .error{
+            color: red;
+        }
     </style>
 </head>
 <body>
 
     <div id="container">
         <div class="tab">
+            <button onclick="openForm('profileForm', this)">Profile</button>
             <button onclick="openForm('loginForm', this)" >Login</button>
             <button onclick="openForm('registerForm', this)">Register</button>
-            <button onclick="openForm('profileForm', this)">Profile</button>
         </div>
 
-        <form id="loginForm" class="form-group">
+        <form action="{{route('user.login.check')}}" method="post" id="loginForm" class="form-group">
+            @csrf
             <h2>Login</h2>
-            <label for="loginUsername">Username:</label>
-            <input type="text" id="loginUsername" name="loginUsername" required>
-            <label for="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" name="loginPassword" required>
-            <button class="py-4" type="button" onclick="login()">Login</button>
+            <label for="email">Email:</label>
+            <input type="email" value="{{old('email')}}" id="email" name="email" >
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" >
+            <input type="submit" class="Register" value="Login">
         </form>
 
-        <form id="registerForm" class="form-group" style="display:none;">
+        <form action="{{route('user.info')}}" method="post" id="registerForm" class="form-group" style="display:none;">
+            @csrf
             <h2>Register</h2>
             <label for="registerUsername">Username:</label>
-            <input type="text" id="registerUsername" name="registerUsername" required>
-            <label for="registerUsername">Username:</label>
-            <input type="text" id="registerUsername" name="registerUsername" required>
+            <input type="text" id="registerUsername" name="name" >
+            @error('name')<div class="error" >{{ $message }}</div> @enderror
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" >
+            @error('email')<div class="error">{{ $message }}</div> @enderror
+
             <label for="registerPassword">Password:</label>
-            <input type="password" id="registerPassword" name="registerPassword" required>
-            <button type="button" onclick="register()">Register</button>
+            <input type="password" id="registerPassword" name="password" >
+            @error('password')<div class="error">{{ $message }}</div> @enderror
+
+            <input type="submit" class="Register" value="Register">
         </form>
 
-        <form id="profileForm" class="form-group" style="display:none;">
+        <form action="{{route('user.logout')}}" method="post" id="profileForm" class="form-group" style="display:none;">
+            @csrf
             <h2>Profile</h2>
             <div class="row">
-                <div class="col-md-8">
-                    <table>
-                        <tr>
-                            <td>Name</td>
-                            <td>User</td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>User</td>
-                        </tr>
-                        <tr>
-                            <td>Phone</td>
-                            <td>User</td>
-                        </tr>
-                    </table>
-
-                </div>
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <img src="https://media.istockphoto.com/id/1124239071/photo/happy-businesswoman-stock-image.jpg?s=612x612&w=0&k=20&c=TVIsFxFyKbQlsyLMeBTt7G3ctQJvNzn9L0Ev3ReauNg=" style="height: 100px">
-
                 </div>
+                <div class="col-md-8">
+
+                <input type="file"  class="form-control" id="email" name="image" >
+                <input type="text"  value="{{Auth::guard('user')->user()->name}}" placeholder="Name" id="email" name="email" >
+                <input type="email"  placeholder="jone@example.com" id="email" name="email" >
+                <input type="text"  placeholder="Phone number" id="email" name="email" >
+                <input type="text"  placeholder="Occupation" id="email" name="email" >
+                <textarea style="width: 232px;height: 46px;" placeholder="About your self"></textarea>
+                </div> --}}
+                <div class="text-center">
+                    <h2>Name: {{Auth::guard('user')->user()->name}}</h2>
+                    <h2>Email: <span style="color:rgb(128, 0, 51)"> {{Auth::guard('user')->user()->email}}</span> </h2>
+            </div>
             </div>
             <!-- Add profile fields here -->
-            <button type="button" onclick="logout()">Logout</button>
+            <input type="submit" class="Register" value="Logout">
         </form>
     </div>
+
+@include('Frontend.Layout.script');
 
     <script>
         function openForm(formName, btn) {
@@ -146,21 +164,6 @@
             }
 
             btn.classList.add('active');
-        }
-
-        function login() {
-            // Handle login logic here
-            alert('Login logic goes here');
-        }
-
-        function register() {
-            // Handle registration logic here
-            alert('Registration logic goes here');
-        }
-
-        function logout() {
-            // Handle logout logic here
-            alert('Logout logic goes here');
         }
     </script>
 

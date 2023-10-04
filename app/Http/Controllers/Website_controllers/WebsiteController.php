@@ -34,6 +34,7 @@ class WebsiteController extends Controller
             'categories'=>BlogCategory::all(),
             'postDetails'=>Post::find($id),
             'creator'=>Admin_account::first(),
+            'posts' => Post::where('status','Public')->inRandomOrder()->take(3)->get(),
         ]);
     }
     public function contact(){
@@ -42,7 +43,5 @@ class WebsiteController extends Controller
         ]);
     }
 
-    public function auth(){
-        return view('Frontend.Authentication.login');
-    }
+    
 }

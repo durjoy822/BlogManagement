@@ -18,30 +18,10 @@
     <!-- End Main -->
     @include('Frontend.Layout.footer')
 
-	<script src='{{asset('Frontend')}}/bundles/91ba43600f7f89a977bde9e658a693a2235799cb.js'></script>
+    <!--script-->
+    @include('Frontend.layout.script')
 
-			<script type="text/javascript">
-		// Slider
-		jQuery('.owl-carousel').owlCarousel({
-			loop:true,
-			autoplay:true,
-			margin:10,
-			nav:true,
-			navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-			responsiveClass: true,
-			items:1,
-			dots:false,
-			responsive:{
-				0:{
-					items:1,
-					nav:true
-				},
-				600:{
-					items:2
-				}
-			}
-		});
-     </script>
+	
 
 
 </body>

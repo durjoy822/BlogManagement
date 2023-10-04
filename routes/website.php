@@ -1,6 +1,8 @@
 <?php
-use App\Http\Controllers\Website_controllers\WebsiteController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Authentication\UserController;
+use App\Http\Controllers\Website_controllers\WebsiteController;
 
 
 
@@ -13,17 +15,14 @@ Route::get('/blog/details/{id}', [WebsiteController::class,'blogDetails'])->name
 Route::get('/contact', [WebsiteController::class,'contact'])->name('contact');
 
 
-Route::get('/user/auth', [WebsiteController::class,'auth'])->name('user.auth');
+Route::get('/user/auth', [UserController::class,'auth'])->name('user.auth');
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/user/register/info', [UserController::class, 'info'])->name('user.info');
+Route::post('/user/login/check', [UserController::class, 'loginCheck'])->name('user.login.check');
+Route::post('/user/logout', [UserController::class, 'logout'])->name('user.logout');
 
 
 
 
-
-// Route::get('/', function () {
-//     return view('Frontend/home');
-// });
-// Route::get('/blog/category', function () {
-//     return view('Frontend/blog-category');
-// });
 
 
