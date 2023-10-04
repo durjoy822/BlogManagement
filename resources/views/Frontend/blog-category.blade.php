@@ -3,7 +3,11 @@
 blog-category
 @endsection
 @section('content')
+<style>
+    .post_count{
 
+    }
+</style>
 <div id="main" style="margin-top:14px">
     <div class="container">
         <div class="row post " style="margin: 0px ; padding:20px 0px" >
@@ -15,10 +19,7 @@ blog-category
                           <i class="fa fa-forward" aria-hidden="true"></i>
                             <span>All video</span>
                         </h6>
-                        @foreach ($postCategories as  $postCategory  )
-
-                        <h2 >Blog  Category: <span class="text-danger btn btn-primary"> {{$postCategory ->Category->name}}</span> </h2>
-                        @endforeach
+                        <h2 >Blog  Category: <span class="text-danger btn btn-primary"> {{$category->name}}</span> </h2>
                 </div>
 
             </div>
@@ -26,22 +27,26 @@ blog-category
         <div class="row">
             <div class="col-md-8">
                 <!-- Post -->
+                @if ($posts->count()==null)
+                <h2 class="text-danger post_count text-center" style="padding: 53px 0px">Category post not found!</h2>
+                @else
+                @foreach ($posts as $post )
                 <article class="post">
                     <header>
                         <div class="title">
-                            <h2><a href="single-post.html">women camping hiking travel</a></h2>
-                            <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+                            <h2><a href="single-post.html">{{$post->title}}</a></h2>
+                            <p>{!! $post->summary!!}</p>
                         </div>
                         <div class="meta">
-                            <time class="published" datetime="2017-01-14">November 1, 2017</time>
-                            <a href="#" class="author"><span class="name">CATHERINE DOE</span><img src="{{asset('Frontend')}}/0ec005ed0443e9a8d1c16f2bccbc9c76cb66e0f5/aaa2d/images/author-avatar.png" alt="" /></a>
+                            <time class="published" datetime="2017-01-14">{{ \Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}</time>
+                            <a href="#" class="author"><span class="name">{{$post->creator}}</span><img src="{{asset($creator->image)}}" alt="" /></a>
                         </div>
                     </header>
-                    <a href="single-post.html" class="image featured"><img src="{{asset('Frontend')}}/4bf284e26c018f9425f060084cc646b882907e4e/3352b/images/large-post01.jpg" alt="" /></a>
-                    <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <a href="single-post.html" class="image featured"><img src="{{asset($post->thumbnail)}}" style="height:300px" alt="" /></a>
+                    <p>{!! substr($post->content, 0, 300)!!}..</p>
                     <footer>
                         <ul class="actions">
-                            <li><a href="single-post.html" class="button big">Continue Reading</a></li>
+                            <li><a href="{{route('blog.details',['id'=>$post->id])}}" class="button big">Continue Reading</a></li>
                         </ul>
                         <ul class="stats">
                             <li><a href="#">General</a></li>
@@ -50,101 +55,37 @@ blog-category
                         </ul>
                     </footer>
                 </article>
+                @endforeach
+                {{-- @else
+                <h2>There is no category post</h2> --}}
+                @endif
 
-                <!-- Post -->
-                <article class="post">
-                    <header>
-                        <div class="title">
-                            <h2><a href="single-post.html">2 girls hugging each other outdoor during daytime</a></h2>
-                            <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
-                        </div>
-                        <div class="meta">
-                            <time class="published" datetime="2017-01-14">October 25, 2017</time>
-                            <a href="#" class="author"><span class="name">CATHERINE DOE</span><img src="{{asset('Frontend')}}/0ec005ed0443e9a8d1c16f2bccbc9c76cb66e0f5/aaa2d/images/author-avatar.png" alt="" /></a>
-                        </div>
-                    </header>
-                    <a href="single-post.html" class="image featured"><img src="{{asset('Frontend')}}/263ef793f330f075186494191143906f24533639/e97d5/images/large-post02.jpg" alt="" /></a>
-                    <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper.</p>
-                    <footer>
-                        <ul class="actions">
-                            <li><a href="single-post.html" class="button big">Continue Reading</a></li>
-                        </ul>
-                        <ul class="stats">
-                            <li><a href="#">General</a></li>
-                            <li><a href="#" class="icon fa fa-heart">28</a></li>
-                            <li><a href="#" class="icon fa fa-comment">128</a></li>
-                        </ul>
-                    </footer>
-                </article>
 
-                <!-- Post -->
-                <article class="post">
-                    <header>
-                        <div class="title">
-                            <h2><a href="single-post.html">food salad Healthy lunch</a></h2>
-                            <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
-                        </div>
-                        <div class="meta">
-                            <time class="published" datetime="2017-01-14">October 22, 2017</time>
-                            <a href="#" class="author"><span class="name">CATHERINE DOE</span><img src="{{asset('Frontend')}}/0ec005ed0443e9a8d1c16f2bccbc9c76cb66e0f5/aaa2d/images/author-avatar.png" alt="" /></a>
-                        </div>
-                    </header>
-                    <a href="single-post.html" class="image featured"><img src="{{asset('Frontend')}}/6e75c3fb673d0bb8be79c701b4929c1fc15c24eb/21746/images/large-post03.jpg" alt="" /></a>
-                    <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Cras vehicula tellus eu ligula viverra, ac fringilla turpis suscipit. Quisque vestibulum rhoncus ligula.</p>
-                    <footer>
-                        <ul class="actions">
-                            <li><a href="single-post.html" class="button big">Continue Reading</a></li>
-                        </ul>
-                        <ul class="stats">
-                            <li><a href="#">General</a></li>
-                            <li><a href="#" class="icon fa fa-heart">28</a></li>
-                            <li><a href="#" class="icon fa fa-comment">128</a></li>
-                        </ul>
-                    </footer>
-                </article>
                 <!-- Pagination -->
-                 <div class="blog-pagination numeric-pagination clearfix">
-                        <ul class="pagination  ">
-                          <li><a href="#"><i class="fa fa-angle-left"></i> Previous</a></li>
-                          <li class="active"><a href="#">1</a></li>
-                          <li><a href="#">2</a></li>
-                          <li><a href="#">3</a></li>
-                          <li><a href="#">4</a></li>
-                          <li><a href="#">Next <i class="fa fa-angle-right"></i></a></li>
-                        </ul>
-
-                        <div class="page-count pull-right">
-                          <span>Page 1 of 12</span>
-                        </div>
-                    </div>
+                <div class="blog-pagination numeric-pagination clearfix ">
+                    <div class="px-4">{{ $posts ->links("pagination::bootstrap-5") }}</div>
+            </div>
             </div> <!-- End col-8 -->
 
             <div class="col-md-4">
                 <div class="sidebar" id="sidebar">
-                    <!-- About -->
-                    <section class="blurb">
-                        <h2 class="title">ABOUT ME</h2>
-
-                        <a href="single-post.html" class="image"><img class="img-responsive" src="{{asset('Frontend')}}/6bd1c010c306435cc65f24db8d1b3aea1a594034/e4ead/images/aboutme.jpg" alt="about me" /></a>
-                        <div class="author-widget">
-                            <h4 class="author-name">Catherine Doe</h4>
-                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
-                        </div>
-                        <div class="social">
-                            <ul class="icons">
-                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-youtube-play"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i> </a></li>
-
-                            </ul>
-                        </div>
+                    <section class="category " >
+                        <h2 class="title">Categories</h2>
+                        <ul>
+                            <li class="category" >
+                                @foreach ($categories as $category )
+                                <h6>
+                                   <a href="{{route('blog.category',$category->id)}}">
+                                    <i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
+                                    {{$category->name}}
+                                   </a>
+                                   <span class="text-danger"> &nbsp;(08)</span>
+                                </h6>
+                                @endforeach
+                            </li>
+                        </ul>
                     </section>
+
 
                     <!-- Mini Posts -->
                     <section>

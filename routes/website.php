@@ -13,6 +13,9 @@ Route::get('/blog/details/{id}', [WebsiteController::class,'blogDetails'])->name
 Route::get('/contact', [WebsiteController::class,'contact'])->name('contact');
 
 
+Route::get('/user/auth', [WebsiteController::class,'auth'])->name('user.auth');
+
+
 
 
 

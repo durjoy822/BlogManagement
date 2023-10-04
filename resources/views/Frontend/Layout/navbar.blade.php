@@ -11,11 +11,15 @@
         </div>
         <div class="collapse navbar-collapse" id="main_nav">
             <div class=" pull-right hidden-xs hidden-sm">
-                <ul class="nav social-links">
+                <ul class="nav social-links navbar-nav">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                     <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    <li class="bg-info"><a href="{{route('user.auth')}}"><i class="fa fa-user text-danger " aria-hidden="true"></i></a></li>
+
+
                 </ul>
 
             </div>
@@ -29,14 +33,14 @@
 						</ul>
 					</li>
                 </li>
-                <li><a href=''>Audio</a></li>
-                <li><a href=''>Video</a></li>
 
                 {{-- <li><a href='{{route('blog.details')}}'>post</a></li> --}}
 
                 <li><a href='{{route('contact')}}'>contact</a></li>
 
+
             </ul>
         </div>
+
     </div>
 </nav>

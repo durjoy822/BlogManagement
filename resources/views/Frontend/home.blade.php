@@ -15,7 +15,7 @@ Home
 						<div class="feat-inner">
 
 							<h2><a href="single-post.html">{{$post->title}}</a></h2>
-							<a href="#" class="feat-more">read more</a>
+							<a href="{{route('blog.details',$post->id)}}" class="feat-more">read more</a>
 						</div>
 					</div>
 
@@ -44,7 +44,7 @@ Home
 							</div>
 						</header>
 						<a href="{{route('blog.details', ['id'=>$post->id])}}" class="image featured"><img style="height:300px" src="{{asset($post->thumbnail)}}" alt="" /></a>
-						<p>{{ substr($post->content, 0, 300)}}..</p>
+						<p>{!! substr($post->content, 0, 300)!!}..</p>
 						<footer>
 							<ul class="actions">
 								<li><a href="{{route('blog.details',['id'=>$post->id])}}" class="button big">Continue Reading</a></li>
@@ -69,58 +69,19 @@ Home
 
 				<div class="col-md-4">
 					<div class="sidebar" id="sidebar">
-						<!-- About -->
-						<section class="blurb">
-							<h2 class="title">ABOUT ME</h2>
-
-							<a href="single-post.html" class="image"><img class="img-responsive" src="{{asset('Frontend')}}/6bd1c010c306435cc65f24db8d1b3aea1a594034/e4ead/images/aboutme.jpg" alt="about me" /></a>
-							<div class="author-widget">
-								<h4 class="author-name">Catherine Doe</h4>
-								<p>Mauris adsfsdfa dfasdfasf afsdasdf neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
-							</div>
-							<div class="social">
-								<ul class="icons">
-									<li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
-									<li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
-									<li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
-									<li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
-									<li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
-									<li><a href="#" target="_blank"><i class="fa fa-youtube-play"></i> </a></li>
-									<li><a href="#" target="_blank"><i class="fa fa-dribbble"></i> </a></li>
-									<li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i> </a></li>
-
-								</ul>
-							</div>
-						</section>
-						<section class="category " style="margin: 50px 0px">
+						<section class="category " >
 							<h2 class="title">Categories</h2>
                             <ul>
                                 <li class="category" >
                                     @foreach ($categories as $category )
                                     <h6>
-                                       <a href="">
+                                       <a href="{{route('blog.category',$category->id)}}">
                                         <i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
                                         {{$category->name}}
                                        </a>
                                        <span class="text-danger"> &nbsp;(08)</span>
                                     </h6>
                                     @endforeach
-                                <li class="category" >
-                                    <h6>
-                                       <a href=""> <i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
-                                      Audio
-                                       </a>
-                                       <span class="text-danger"> &nbsp;(08)</span>
-                                    </h6>
-                                </li>
-                                <li class="category" >
-                                    <h6>
-                                       <a href=""> <i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
-                                      Video
-                                       </a>
-                                       <span class="text-danger"> &nbsp;(08)</span>
-                                    </h6>
                                 </li>
                             </ul>
 						</section>

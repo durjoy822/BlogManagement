@@ -20,24 +20,11 @@ blog-details
                             <a href="#" class="author"><span class="name">{{$postDetails->creator}}</span><img src="{{asset($creator->image)}}" alt="" /></a>
                         </div>
                     </header>
-                    <div class="image featured"><img src="{{asset($postDetails->thumbnail)}}" alt="" /></div>
+                    <div class="image featured"><img src="{{asset($postDetails->thumbnail)}}" style="width:284 px; height:350px " alt="" /></div>
                         <div>
                             {!!$postDetails->content!!}
                         </div>
                         <footer>
-
-                            <div class="social actions">
-                                <ul class="icons">
-                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
-
-
-                                </ul>
-                            </div>
 
                             <ul class="stats">
                                 <li><a href="#">General</a></li>
@@ -103,24 +90,7 @@ blog-details
                                     </div>
                                 </div>
                             </div>
-                            <div class="blog-comment">
-                                <a class="comment-avtar"><img src="{{asset('Frontend')}}/8955e4aaceaa05ec35ff65521af5363b5ad32973/ab4ee/images/avtar-comment.jpg" alt="image"></a>
-                                <div class="comment-text">
-                                    <h3>CATHERINE DOE</h3>
-                                    <h5>Avril 13, 2017 at 21:11 am</h5>
-                                    <p>packages and web page editors now use Lorem IpLeo reco as their default model text, and a search for 'lorem ipLeo reco' will uncover many web site</p>
-                                    <a href="javascript:void(0)" class="comment-reply"> Reply <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
-                                </div>
-                                <div class="blog-comment clearfix">
-                                    <a class="comment-avtar"><img src="{{asset('Frontend')}}/8955e4aaceaa05ec35ff65521af5363b5ad32973/ab4ee/images/avtar-comment.jpg" alt="image"></a>
-                                    <div class="comment-text">
-                                        <h3>Edward Doe</h3>
-                                        <h5>Avril 13, 2017 at 21:11 am</h5>
-                                        <p>packages and web page editors now use Lorem IpLeo reco as their default model text, and a search for 'lorem ipLeo reco' will uncover many web site</p>
-                                        <a href="javascript:void(0)" class="comment-reply"> Reply <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
+                          
                         </div>
                     </div>
                     <!-- Blog Pagination Ends -->
@@ -159,29 +129,21 @@ blog-details
 
                 <div class="col-md-4">
                     <div class="sidebar" id="sidebar">
-                        <!-- About -->
-                        <section class="blurb">
-                            <h2 class="title">ABOUT ME</h2>
-
-                            <a href="single-post.html" class="image"><img class="img-responsive" src="{{asset('Frontend')}}/6bd1c010c306435cc65f24db8d1b3aea1a594034/e4ead/images/aboutme.jpg" alt="about me" /></a>
-                            <div class="author-widget">
-                                <h4 class="author-name">Catherine Doe</h4>
-                                <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
-                            </div>
-                            <div class="social">
-                                <ul class="icons">
-                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-youtube-play"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i> </a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i> </a></li>
-
-                                </ul>
-                            </div>
+                        <section class="category " >
+                            <h2 class="title">Categories</h2>
+                            <ul>
+                                <li class="category" >
+                                    @foreach ($categories as $category )
+                                    <h6>
+                                       <a href="{{route('blog.category',$category->id)}}">
+                                        <i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
+                                        {{$category->name}}
+                                       </a>
+                                       <span class="text-danger"> &nbsp;(08)</span>
+                                    </h6>
+                                    @endforeach
+                                </li>
+                            </ul>
                         </section>
 
                         <!-- Mini Posts -->
@@ -272,26 +234,6 @@ blog-details
                                 </li>
                             </ul>
                         </section>
-
-                        <section>
-                            <div class="widget HTML">
-                                <h2 class="title">INSTGRAM</h2>
-                                <div class="widget-content">
-                                    <div class="instagram-feeds row-gallery">
-                                        <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/42cd81bc6fdf02b168a6c7731d6d41614c096b42/e5a9a/images/instagram01.jpg" alt="Instagram Image"></a>
-                                        <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/2be5117f0f8791105eaa8f6225940dc85de3d501/05e6b/images/instagram02.jpg" alt="Instagram Image"></a>
-                                        <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/c4b5d84463de168990caf785b476171e2933bbe7/2ec3b/images/instagram03.jpg" alt="Instagram Image"></a>
-                                        <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/2a98d70ce3ed39151b234625df6e89fdf723ed34/06daf/images/instagram04.jpg" alt="Instagram Image"></a>
-                                        <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/434639103b5df129424f68274416a82923e2a1b9/d319f/images/instagram05.jpg" alt="Instagram Image"></a>
-                                        <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/a33e2f5ca15a1a696a91663f30a66f33867114d4/7a887/images/instagram06.jpg" alt="Instagram Image"></a>
-                                        <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/e3c5b50e266fd4d6371d64136ca97e0c194a807e/ef3f4/images/instagram07.jpg" alt="Instagram Image"></a>
-                                        <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/ae08e2764ca18872d1665a7608bbaeacb6e54797/0858e/images/instagram08.jpg" alt="Instagram Image"></a>
-                                        <a href="#" class="col-sm-4 col-xs-3"><img src="{{asset('Frontend')}}/42cd81bc6fdf02b168a6c7731d6d41614c096b42/ee714/images/instagram09.jpg" alt="Instagram Image"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </section> <!-- End inta -->
-
                     </div> <!-- End Sidebar -->
                 </div><!-- End-col-md-4 -->
             </div><!-- End-col-md-4 -->

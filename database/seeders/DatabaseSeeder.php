@@ -21,8 +21,6 @@ class DatabaseSeeder extends Seeder
             // UserSeeder::class,
             AdminSeeder::class,
             TagSeeder::class,
-            VideoSeeder::class,
-            AudioSeeder::class,
             Admin_accountSeeder::class,
             PostSeeder::class,
         ]);
