@@ -27,12 +27,11 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register/info', [RegisterController::class, 'info'])->name('info');
 Route::post('/login/check', [RegisterController::class, 'loginCheck'])->name('login.check');
 
-
 Route::get('/setting', [SettingController::class, 'setting'])->name('setting.general');
+Route::post('/setting/update/{id}', [SettingController::class, 'settingUpdate'])->name('setting.update');
 
 Route::get('/account', [AccountController::class, 'account'])->name('account.index');
 Route::post('/account/update/{id}', [AccountController::class, 'accountUpdate'])->name('account.update');
-
 
 
 

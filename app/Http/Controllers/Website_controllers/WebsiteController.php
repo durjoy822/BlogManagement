@@ -17,6 +17,8 @@ class WebsiteController extends Controller
             'categories'=>BlogCategory::all(),
             'posts'=>Post::where('status','Public')->orderBy('id','DESC')->paginate(3),
             'creator'=>Admin_account::first(),
+            'LatestPosts' => Post::where('status','Public')->inRandomOrder()->take(4)->get(),
+
 
         ]);
     }
@@ -26,6 +28,8 @@ class WebsiteController extends Controller
             'category'=>BlogCategory::find($id),
             'posts'=>Post::where('category_id',$id)->where('status','Public')->orderBy('id','DESC')->paginate(3),
             'creator'=>Admin_account::first(),
+            'LatestPosts' => Post::where('status','Public')->inRandomOrder()->take(4)->get(),
+
         ]);
     }
     public function blogDetails($id){
@@ -34,7 +38,7 @@ class WebsiteController extends Controller
             'categories'=>BlogCategory::all(),
             'postDetails'=>Post::find($id),
             'creator'=>Admin_account::first(),
-            'posts' => Post::where('status','Public')->inRandomOrder()->take(3)->get(),
+            'LatestPosts' => Post::where('status','Public')->inRandomOrder()->take(3)->get(),
         ]);
     }
     public function contact(){
@@ -43,5 +47,5 @@ class WebsiteController extends Controller
         ]);
     }
 
-    
+
 }

@@ -138,8 +138,8 @@
                 <textarea style="width: 232px;height: 46px;" placeholder="About your self"></textarea>
                 </div> --}}
                 <div class="text-center">
-                    <h2>Name: {{Auth::guard('user')->user()->name}}</h2>
-                    <h2>Email: <span style="color:rgb(128, 0, 51)"> {{Auth::guard('user')->user()->email}}</span> </h2>
+                    <h2>Name: </h2>
+                    <h2>Email: <span style="color:rgb(128, 0, 51)"></span> </h2>
             </div>
             </div>
             <!-- Add profile fields here -->

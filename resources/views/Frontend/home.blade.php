@@ -35,7 +35,7 @@ Home
 						<header>
                             <div class="title">
                                 <p >category: {{$post->Category->name}}</p>
-								<h2><a href="single-post.html">{{$post->title}}</a></h2>
+								<h2><a href="{{route('blog.details', ['id'=>$post->id])}}">{{$post->title}}</a></h2>
 								<p>{!!$post->summary!!}</p>
 							</div>
 							<div class="meta">
@@ -136,42 +136,18 @@ Home
 						<section>
 							<h2 class="title">LATEST POSTS</h2>
 							<ul class="posts">
+                                @foreach ($LatestPosts as  $post)
 								<li>
 									<article>
 										<header>
-											<h3><a href="#">adventure cliffs climb climber</a></h3>
-											<time class="published" datetime="2017-01-14">October 20, 2017</time>
+											<h3><a href="{{route('blog.details',$post->id)}}">{{$post->title}}</a></h3>
+											<time class="published" datetime="2017-01-14">{{ \Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}</time>
+
 										</header>
-										<a href="#" class="image"><img src="{{asset('Frontend')}}/36ce118d10e6ec7d10650942d388d5c0fd108b08/e0b11/images/small-side-post01.jpg" alt="" /></a>
+										<a href="{{route('blog.details',$post->id)}}" class="image"><img src="{{asset($post->thumbnail)}}" alt="" /></a>
 									</article>
 								</li>
-								<li>
-									<article>
-										<header>
-											<h3><a href="#">Convallis maximus nisl mattis nunc id lorem</a></h3>
-											<time class="published" datetime="2017-01-14">October 15, 2017</time>
-										</header>
-										<a href="#" class="image"><img src="{{asset('Frontend')}}/75de56c7f92e6948888a18d482137ceb4d05abc9/56abd/images/small-side-post02.jpg" alt="" /></a>
-									</article>
-								</li>
-								<li>
-									<article>
-										<header>
-											<h3><a href="#">green and white convertible coupe on day time</a></h3>
-											<time class="published" datetime="2017-01-14">October 10, 2017</time>
-										</header>
-										<a href="#" class="image"><img src="{{asset('Frontend')}}/684b1b28d633e9544cb5f26bf92d7f6f7d9e59df/d48b1/images/small-side-post03.jpg" alt="" /></a>
-									</article>
-								</li>
-								<li>
-									<article>
-										<header>
-											<h3><a href="#">green and white convertible coupe on day time</a></h3>
-											<time class="published" datetime="2017-01-14">October 10, 2017</time>
-										</header>
-										<a href="#" class="image"><img src="{{asset('Frontend')}}/eaf0d42e8a129f20c1bdc9a2ba4ba29cd20fedbb/09583/images/small-side-post04.jpg" alt="" /></a>
-									</article>
-								</li>
+                                @endforeach
 							</ul>
 						</section>
 
