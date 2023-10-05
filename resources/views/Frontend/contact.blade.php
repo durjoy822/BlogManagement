@@ -15,31 +15,32 @@
                                 <div class="row wrap-box"><!--Start Box-->
                                     <h3 class="text-center">Contact Form</h3>
                                     <div class="contact-form ">
-                                        <form name="sentMessage" id="contactForm">
+                                        <form action="{{route('message.store')}}" id="contactForm" method="post" >
+                                            @csrf
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-left">
                                                 <div class="form-group">
-                                                    <input id="name" type="text" placeholder="Name"
+                                                    <input name="name" id="name" type="text" placeholder="Name"
                                                         required="required" />
 
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-right">
                                                 <div class="form-group">
-                                                    <input id="email" type="email" placeholder="Email"
+                                                    <input id="email" name="email" type="email" placeholder="Email"
                                                         required="required" />
 
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-pad-right">
                                                 <div class="form-group">
-                                                    <input id="subject" type="text" placeholder="Subject"
+                                                    <input id="subject" name="subject" type="text" placeholder="Subject"
                                                         required="required" />
 
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
                                                 <div class="form-group">
-                                                    <textarea name="message" id="message" placeholder="Message" required></textarea>
+                                                    <textarea name="message" name="message" id="message" placeholder="Message" required></textarea>
 
                                                 </div>
                                                 <div id="success"></div>

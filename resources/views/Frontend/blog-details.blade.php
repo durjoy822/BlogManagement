@@ -79,20 +79,22 @@ blog-details
                                 </div>
                                 @endif
                                 @endforeach
-                                <!--replay -->
-                                @foreach ( $replays as $replay)
-                                @if ( $replay->id==$replay->parent_id)
-                                <div class="blog-comment clearfix">
-                                    <a class="comment-avtar"><img src="{{asset('Frontend')}}/8955e4aaceaa05ec35ff65521af5363b5ad32973/ab4ee/images/avtar-comment.jpg" alt="image"></a>
-                                    <div class="comment-text">
-                                        <h3>Edward Doe</h3>
-                                        <h5>Avril 13, 2017 at 21:11 am</h5>
-                                        <p>{{$replay->comment}}</p>
-                                        <a href="javascript:void(0)" class="comment-reply"> Reply <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
-                                    </div>
-                                </div>
-                                @endif
-                                @endforeach
+                                 <!--replay -->
+                                 {{-- @php $replays=\App\Models\Comment::where('parent_id',$comment->id)->get() @endphp --}}
+                                 @foreach ( $replays as $replay)
+                                 {{-- @if ($replay->parent_id !== null && $replay->id === $replay->parent_id) --}}
+                                 <div class="blog-comment clearfix">
+                                     <a class="comment-avtar"><img src="{{asset('Frontend')}}/8955e4aaceaa05ec35ff65521af5363b5ad32973/ab4ee/images/avtar-comment.jpg" alt="image"></a>
+                                     <div class="comment-text">
+                                         <h3>Edward Doe</h3>
+                                         <h5>Avril 13, 2017 at 21:11 am</h5>
+                                         <p>{{$replay->comment}}</p>
+                                         {{-- <a href="javascript:void(0)" class="comment-reply"> Reply <i class="fa fa-angle-right" aria-hidden="true"></i> </a> --}}
+                                     </div>
+                                 </div>
+                                 {{-- @endif --}}
+                                 @endforeach
+
                             </div>
 
                         </div>

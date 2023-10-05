@@ -96,7 +96,7 @@
         </a>
       </li>
       <li class="menu-item ">
-        <a href="{{route('post.index')}}" class="menu-link">
+        <a href="{{route('message')}}" class="menu-link">
             <i class="menu-icon  fa-solid fa-envelope"></i>
           <div data-i18n="Basic">Message Request</div>
         </a>

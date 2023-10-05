@@ -11,6 +11,7 @@ use App\Http\Controllers\Authentication\RegisterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\MessageController;
 
 
 
@@ -32,6 +33,12 @@ Route::post('/setting/update/{id}', [SettingController::class, 'settingUpdate'])
 
 Route::get('/account', [AccountController::class, 'account'])->name('account.index');
 Route::post('/account/update/{id}', [AccountController::class, 'accountUpdate'])->name('account.update');
+
+
+Route::get('/message', [MessageController::class, 'message'])->name('message');
+Route::post('/message/store', [MessageController::class, 'messageStore'])->name('message.store');
+Route::get('/message/view/{id}', [MessageController::class, 'messageView'])->name('message.view');
+Route::post('/message/delete/{id}', [MessageController::class, 'messageDelete'])->name('message.delete');
 
 
 

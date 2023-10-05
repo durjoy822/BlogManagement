@@ -84,14 +84,16 @@
     </style>
 </head>
 <body>
-
     <div id="container">
         <div class="tab">
+            @if (auth()->guard('user')->user())
             <button onclick="openForm('profileForm', this)">Profile</button>
+            @else
             <button onclick="openForm('loginForm', this)" >Login</button>
             <button onclick="openForm('registerForm', this)">Register</button>
+            @endif
         </div>
-
+        @if (!auth()->guard('user')->user())
         <form action="{{route('user.login.check')}}" method="post" id="loginForm" class="form-group">
             @csrf
             <h2>Login</h2>
@@ -102,7 +104,7 @@
             <input type="password" id="password" name="password" >
             <input type="submit" class="Register" value="Login">
         </form>
-
+        @endif
         <form action="{{route('user.info')}}" method="post" id="registerForm" class="form-group" style="display:none;">
             @csrf
             <h2>Register</h2>
@@ -120,31 +122,23 @@
 
             <input type="submit" class="Register" value="Register">
         </form>
-
         <form action="{{route('user.logout')}}" method="post" id="profileForm" class="form-group" style="display:none;">
             @csrf
             <h2>Profile</h2>
             <div class="row">
-                {{-- <div class="col-md-4">
+                <div class="col-md-4">
                     <img src="https://media.istockphoto.com/id/1124239071/photo/happy-businesswoman-stock-image.jpg?s=612x612&w=0&k=20&c=TVIsFxFyKbQlsyLMeBTt7G3ctQJvNzn9L0Ev3ReauNg=" style="height: 100px">
                 </div>
                 <div class="col-md-8">
 
                 <input type="file"  class="form-control" id="email" name="image" >
-                <input type="text"  value="{{Auth::guard('user')->user()->name}}" placeholder="Name" id="email" name="email" >
+                <input type="text"  value="" placeholder="Name" id="email" name="email" >
                 <input type="email"  placeholder="jone@example.com" id="email" name="email" >
                 <input type="text"  placeholder="Phone number" id="email" name="email" >
                 <input type="text"  placeholder="Occupation" id="email" name="email" >
                 <textarea style="width: 232px;height: 46px;" placeholder="About your self"></textarea>
-                </div> --}}
+                </div>
                 <div class="text-center">
-                    {{-- @if (!Auth::guard('user')->user()->id) --}}
-                    {{-- <h2>Login first </h2> --}}
-                    {{-- @else --}}
-                    {{-- <h2 style="margin-bottom:0px">Name:{{Auth::guard('user')->user()->name}} </h2>
-                    <h2>Email: {{Auth::guard('user')->user()->email}}</h2> --}}
-                    {{-- @endif --}}
-
                 </div>
             </div>
             <!-- Add profile fields here -->

@@ -46,7 +46,9 @@ class WebsiteController extends Controller
             'LatestPosts' => Post::where('status','Public')->inRandomOrder()->take(3)->get(),
             'settings'=>Setting::first(),
             'comments'=>Comment::where('parent_id',null)->get(),
+            // 'replays' => Comment::whereNotNull('parent_id')->where('parent_id','id')->get(),
             'replays' => Comment::whereNotNull('parent_id')->get(),
+            // 'replays' => Comment::whereNotNull('parent_id')->whereColumn('parent_id', '=', 'id')->get(),
 
         ]);
     }
