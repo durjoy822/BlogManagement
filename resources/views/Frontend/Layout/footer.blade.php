@@ -4,22 +4,16 @@
             <div class="full">
                 <ul class="quick-link">
 
-                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-youtube-play"></i> </a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i> </a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i> </a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-vimeo-square"></i> </a></li>
-                    <li><a href="#" target="_blank"><i class="fa fa-rss"></i> </a></li>
+                    <li><a href="{{$settings->facebook_link}}"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="{{$settings->twitter_link}}"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="{{$settings->instagram_link}}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="{{$settings->youtube_link}}"><i class="fa fa-youtube-play"></i></a></li>
+                    <li><a href="{{$settings->google_plus_link}}"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
 
                 </ul>
 
                 <div class="copy-right">
-                    <p>copyright,&copy; 2017 - All Rights Reserved. <a href="#">Breif</a></p>
+                    {{$settings->copyright}}
                 </div>
             </div>
         </div>

@@ -138,9 +138,14 @@
                 <textarea style="width: 232px;height: 46px;" placeholder="About your self"></textarea>
                 </div> --}}
                 <div class="text-center">
-                    <h2>Name: </h2>
-                    <h2>Email: <span style="color:rgb(128, 0, 51)"></span> </h2>
-            </div>
+                    {{-- @if (!Auth::guard('user')->user()->id) --}}
+                    {{-- <h2>Login first </h2> --}}
+                    {{-- @else --}}
+                    {{-- <h2 style="margin-bottom:0px">Name:{{Auth::guard('user')->user()->name}} </h2>
+                    <h2>Email: {{Auth::guard('user')->user()->email}}</h2> --}}
+                    {{-- @endif --}}
+
+                </div>
             </div>
             <!-- Add profile fields here -->
             <input type="submit" class="Register" value="Logout">

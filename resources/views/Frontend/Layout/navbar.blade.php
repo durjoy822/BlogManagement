@@ -7,16 +7,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class='navbar-brand' href='index.html'><img src="{{asset('Frontend')}}/10fb8ea3421c6fbf36315e0dad88ec2e1d9ac693/3aee6/images/logo.png" alt="logo"></a>
+            <a class='navbar-brand' href='index.html'><img src="{{asset($settings->light_logo)}}" alt="logo"></a>
         </div>
         <div class="collapse navbar-collapse" id="main_nav">
             <div class=" pull-right hidden-xs hidden-sm">
                 <ul class="nav social-links navbar-nav">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    <li><a href="{{$settings->facebook_link}}"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="{{$settings->twitter_link}}"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="{{$settings->instagram_link}}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="{{$settings->youtube_link}}"><i class="fa fa-youtube-play"></i></a></li>
+                    <li><a href="{{$settings->google_plus_link}}"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
                     <li class="bg-info"><a href="{{route('user.auth')}}"><i class="fa fa-user text-danger " aria-hidden="true"></i></a></li>
 
 

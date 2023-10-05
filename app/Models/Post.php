@@ -14,4 +14,7 @@ public function Category(): BelongsTo
 {
     return $this->belongsTo(BlogCategory::class);
 }
+public function comment(){
+    return $this->hasMany(Comment::class)->whereNull('parent_id');
+}
 }

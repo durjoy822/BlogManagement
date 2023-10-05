@@ -55,7 +55,7 @@ class UserController extends Controller
 
     }
     public function logout(){
-        Auth::guard('admin')->logout();
+        Auth::guard('user')->logout();
         Session::flash('warning',' logout Successfully.');
         return redirect()->route('home');
     }

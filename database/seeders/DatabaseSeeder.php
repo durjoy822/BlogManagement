@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             Admin_accountSeeder::class,
             PostSeeder::class,
             SettingSeeder::class,
+            // CommentSeeder::class,
         ]);
 
 

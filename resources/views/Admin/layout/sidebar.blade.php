@@ -95,6 +95,12 @@
           <div data-i18n="Basic">All post</div>
         </a>
       </li>
+      <li class="menu-item ">
+        <a href="{{route('post.index')}}" class="menu-link">
+            <i class="menu-icon  fa-solid fa-envelope"></i>
+          <div data-i18n="Basic">Message Request</div>
+        </a>
+      </li>
     </ul>
 <div>
     <li class="menu-item">

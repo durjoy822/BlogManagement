@@ -8,6 +8,8 @@
 	<meta charset="utf-8" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--favicon-->
+    <link rel="shortcut icon" href="{{$settings->favicon}}">
 
 	<!-- Bootstrap -->
 	<link href='{{asset('Frontend')}}/css/42619be83e2734cf8c0a0736e272b778d5be05b1/css/bootstrap.min.css' rel='stylesheet'/>

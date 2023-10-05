@@ -59,22 +59,40 @@ blog-details
                         <div class="blog-comment-main">
                             <h3>4 Comments</h3>
                             <div class="blog-comment">
+                                @foreach ( $comments as $comment )
+                                @if ($comment->post_id==$postDetails->id)
                                 <a class="comment-avtar"><img src="{{asset('Frontend')}}/8955e4aaceaa05ec35ff65521af5363b5ad32973/ab4ee/images/avtar-comment.jpg" alt="image"></a>
                                 <div class="comment-text">
-                                    <h3>CATHERINE DOE</h3>
-                                    <h5>Avril 13, 2017 at 21:11 am</h5>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking</p>
-                                    <a href="javascript:void(0)" class="comment-reply"> Reply <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+                                    <h3>{{$comment->user->name}}</h3>
+                                    <h5>{{ \Carbon\Carbon::parse($comment->created_at)->format('Y-m-d H:i:s') }}</h5>
+                                    <p>{{$comment->comment}}</p>
+                                    <a href="javascript:void(0)" class="reply-toggle comment-reply" onclick="toggleReplyForm(this)" > Reply <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+                                    <div class="comment-form" style="display: none">
+                                        <form action="{{route('replay')}}" method="post">
+                                             @csrf
+                                        <input type="hidden" name="comment_id" value="{{$comment->id}}"> <!-- store as a parent id-->
+                                        <input type="hidden" name="post_id" value="{{$postDetails->id}}">
+                                        <textarea class="form-control" name="replay" placeholder="Add your reply" style="width:25vw"></textarea>
+                                        <button type="submit" class="btn-info " style="margin-top:5px">Post Reply</button>
+                                    </form>
+                                    </div>
                                 </div>
+                                @endif
+                                @endforeach
+                                <!--replay -->
+                                @foreach ( $replays as $replay)
+                                @if ( $replay->id==$replay->parent_id)
                                 <div class="blog-comment clearfix">
                                     <a class="comment-avtar"><img src="{{asset('Frontend')}}/8955e4aaceaa05ec35ff65521af5363b5ad32973/ab4ee/images/avtar-comment.jpg" alt="image"></a>
                                     <div class="comment-text">
                                         <h3>Edward Doe</h3>
                                         <h5>Avril 13, 2017 at 21:11 am</h5>
-                                        <p>using Lorem IpLeo reco is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                                        <p>{{$replay->comment}}</p>
                                         <a href="javascript:void(0)" class="comment-reply"> Reply <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
                                     </div>
                                 </div>
+                                @endif
+                                @endforeach
                             </div>
 
                         </div>
@@ -83,25 +101,18 @@ blog-details
                     <!-- Blog Contact Form Begins -->
                     <div class="contact-form pad-top-big pad-bottom-big">
                         <h3>Leave A Reply</h3>
-                        <form>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-left">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Name" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-right">
-                                <div class="form-group">
-                                    <input type="email" placeholder="Email" />
-                                </div>
-                            </div>
+                        <form action="{{route('comments')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="post_id" value="{{$postDetails->id}}">
+                            {{-- <input type="hidden" name="user_id" value="{{Auth::guard()->user()->id}}"> --}}
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
                                 <div class="form-group">
-                                    <textarea placeholder="Comment"></textarea>
+                                    <textarea name="comment" style="height: 124px" placeholder="Comment"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
                                 <div class="form-group contactus-btn">
-                                    <a href="javascript:void(0)" class="cntct-btn"> Post Comment </a>
+                                    <input type="submit" value="post comment" class="cntct-btn btn btn-info">
                                 </div>
                             </div>
                         </form>
@@ -201,4 +212,10 @@ blog-details
             </div><!-- End-col-md-4 -->
         </div> <!-- End row -->
     </div> <!-- End Container -->
+    <script>
+        function toggleReplyForm(button) {
+            var commentForm = button.nextElementSibling;
+            commentForm.style.display = (commentForm.style.display === 'none' || commentForm.style.display === '') ? 'block' : 'none';
+        }
+    </script>
 @endsection
