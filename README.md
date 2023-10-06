@@ -17,13 +17,7 @@ Welcome to the Laravel Blog Project! This is a simple blog application built usi
 2. Run `composer install` to install the required dependencies.
 3. Rename `.env.example` to `.env` and fill in the required database credentials.
 4. Run `php artisan key:generate` to generate a new application key.
-5.Configure your database settings in the .env file:
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=your_database_name
-    DB_USERNAME=your_database_username
-    DB_PASSWORD=your_database_password
+5.Configure your database settings in the .env file.
 6. Run `php artisan migrate::fresh --seed` to create the necessary database tables automaically.
 
 ## Usage
